@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:waraqty/app/app_directionality.dart';
+import 'package:waraqty/app/app_system_ui.dart';
+import 'package:waraqty/core/constants/app_constants.dart';
+import 'package:waraqty/core/constants/app_strings.dart';
+import 'package:waraqty/core/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,19 +12,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844),
+      designSize: const Size(AppConstants.appWidth, AppConstants.appHeight),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          title: 'Waraqty',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
+        return AnnotatedRegion(
+          value: AppSystemUi.overlayStyle,
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: AppStrings.appName,
+            theme: AppTheme.lightTheme,
+            builder: _appBuilder,
+            home: const Scaffold(body: Text(AppStrings.appName)),
           ),
-          home: const Scaffold(body: Center(child: Text('Hello, Waraqty!'))),
         );
       },
     );
+  }
+
+  static Widget _appBuilder(BuildContext context, Widget? child) {
+    return AppDirectionality(child: child);
   }
 }
