@@ -7,7 +7,9 @@ import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool hasSeenOnboarding;
+
+  const MyApp({super.key, required this.hasSeenOnboarding});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,9 @@ class MyApp extends StatelessWidget {
             title: AppStrings.appName,
             theme: AppTheme.lightTheme,
             builder: _appBuilder,
-            home: const Scaffold(body: Text(AppStrings.appName)),
+            home: hasSeenOnboarding
+                ? const Scaffold(body: Center(child: Text(AppStrings.appName)))
+                : const Scaffold(body: Center(child: Text('Onboarding Screen'))),
           ),
         );
       },
