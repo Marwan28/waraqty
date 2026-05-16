@@ -11,6 +11,11 @@ void main() async {
   final onboardingLocalDataSource = OnboardingLocalDataSource(
     sharedPreferences: sharedPreferences,
   );
-  final hasSeenOnboarding = await onboardingLocalDataSource.getFirstTime();
-  runApp(MyApp(hasSeenOnboarding: hasSeenOnboarding));
+  final hasSeenOnboarding = await onboardingLocalDataSource.hasSeenOnboarding();
+  runApp(
+    MyApp(
+      hasSeenOnboarding: hasSeenOnboarding,
+      sharedPreferences: sharedPreferences,
+    ),
+  );
 }

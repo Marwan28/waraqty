@@ -6,7 +6,7 @@ class OnboardingLocalDataSource {
 
   OnboardingLocalDataSource({required this.sharedPreferences});
 
-  Future<bool> getFirstTime() async {
+  Future<bool> hasSeenOnboarding() async {
     try {
       final isFirstTime = sharedPreferences.getBool(
         AppConstants.hasSeenOnboardingKey,
@@ -17,11 +17,7 @@ class OnboardingLocalDataSource {
     }
   }
 
-  Future<void> setFirstTime() async {
-    try {
-      await sharedPreferences.setBool(AppConstants.hasSeenOnboardingKey, true);
-    } catch (e) {
-      print(e.toString());
-    }
+  Future<void> setOnboardingSeen() async {
+    await sharedPreferences.setBool(AppConstants.hasSeenOnboardingKey, true);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:waraqty/app/app_directionality.dart';
 import 'package:waraqty/app/app_system_ui.dart';
 import 'package:waraqty/core/constants/app_constants.dart';
@@ -9,8 +10,13 @@ import 'package:waraqty/core/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
   final bool hasSeenOnboarding;
+  final SharedPreferences sharedPreferences;
 
-  const MyApp({super.key, required this.hasSeenOnboarding});
+  const MyApp({
+    super.key,
+    required this.hasSeenOnboarding,
+    required this.sharedPreferences,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,10 @@ class MyApp extends StatelessWidget {
             title: AppStrings.appName,
             theme: AppTheme.lightTheme,
             builder: _appBuilder,
-            routerConfig: AppRouter(hasSeenOnboarding: hasSeenOnboarding).router,
+            routerConfig: AppRouter(
+              hasSeenOnboarding: hasSeenOnboarding,
+              sharedPreferences: sharedPreferences,
+            ).router,
           ),
         );
       },
