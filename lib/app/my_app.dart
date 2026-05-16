@@ -4,6 +4,7 @@ import 'package:waraqty/app/app_directionality.dart';
 import 'package:waraqty/app/app_system_ui.dart';
 import 'package:waraqty/core/constants/app_constants.dart';
 import 'package:waraqty/core/constants/app_strings.dart';
+import 'package:waraqty/core/routing/app_router.dart';
 import 'package:waraqty/core/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
@@ -20,14 +21,12 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return AnnotatedRegion(
           value: AppSystemUi.overlayStyle,
-          child: MaterialApp(
+          child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: AppStrings.appName,
             theme: AppTheme.lightTheme,
             builder: _appBuilder,
-            home: hasSeenOnboarding
-                ? const Scaffold(body: Center(child: Text(AppStrings.appName)))
-                : const Scaffold(body: Center(child: Text('Onboarding Screen'))),
+            routerConfig: AppRouter(hasSeenOnboarding: hasSeenOnboarding).router,
           ),
         );
       },
