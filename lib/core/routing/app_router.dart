@@ -8,6 +8,10 @@ import 'package:waraqty/features/onboarding/data/repositories/onboarding_reposit
 import 'package:waraqty/features/onboarding/domain/usecases/complete_onboarding_usecase.dart';
 import 'package:waraqty/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:waraqty/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:waraqty/features/paper_setup/presentation/cubit/paper_setup_cubit.dart';
+import 'package:waraqty/features/paper_setup/presentation/screens/grade_selection_screen.dart';
+import 'package:waraqty/features/paper_setup/presentation/screens/paper_type_screen.dart';
+import 'package:waraqty/features/paper_setup/presentation/screens/subject_selection_screen.dart';
 
 class AppRouter {
   final bool hasSeenOnboarding;
@@ -35,26 +39,33 @@ class AppRouter {
           child: OnboardingScreen(),
         ),
       ),
-      GoRoute(
-        path: AppRoutes.gradeSelection,
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Grade Selection Screen'))),
+      ShellRoute(
+        builder: (context, state, child) {
+          return BlocProvider(
+            create: (context) => PaperSetupCubit(),
+            child: child,
+          );
+        },
+        routes: [
+          GoRoute(
+            path: AppRoutes.gradeSelection,
+            builder: (context, state) => const GradeSelectionScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.subjectSelection,
+            builder: (context, state) => const SubjectSelectionScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.documentType,
+            builder: (context, state) => const PaperTypeScreen(),
+          ),
+        ],
       ),
+
       GoRoute(
-        path: AppRoutes.subjectSelection,
+        path: AppRoutes.questionsSelection,
         builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Subject Selection Screen')),
-        ),
-      ),
-      GoRoute(
-        path: AppRoutes.documentType,
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Document Type Screen'))),
-      ),
-      GoRoute(
-        path: AppRoutes.questionSelection,
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Question Selection Screen')),
+          body: Center(child: Text('Questions Selection Screen')),
         ),
       ),
       GoRoute(
