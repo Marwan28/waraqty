@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/grade_entity.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/paper_type_entity.dart';
@@ -7,7 +8,7 @@ import 'package:waraqty/features/paper_setup/domain/entities/subject_entity.dart
 part 'paper_setup_state.dart';
 
 class PaperSetupCubit extends Cubit<PaperSetupState> {
-  PaperSetupCubit() : super(const PaperSetupInitial());
+  PaperSetupCubit() : super(const PaperSetupState());
 
   final List<GradeEntity> grades = const [
     GradeEntity(
@@ -83,4 +84,36 @@ class PaperSetupCubit extends Cubit<PaperSetupState> {
       subtitle: PaperTypesStrings.examSubtitle,
     ),
   ];
+
+  void selectGrade(GradeEntity grade) {
+    emit(
+      PaperSetupState(
+        selectedGrade: grade,
+        selectedSubject: null,
+        selectedPaperType: null,
+      ),
+    );
+  }
+
+  void selectSubject(SubjectEntity subject) {
+    if (!state.canOpenSubjectSelection) return;
+    if (!subject.isAvailable) return;
+
+    emit(
+      PaperSetupState(
+        selectedGrade: state.selectedGrade,
+        selectedSubject: subject,
+        selectedPaperType: null,
+      ),
+    );
+  }
+
+  void selectPaperType(PaperTypeEntity paperType) {
+    if (!state.canOpenPaperTypeSelection) return;
+    emit(state.copyWith(selectedPaperType: paperType));
+  }
+
+  void resetSetup() {
+    emit(state.clearSelections());
+  }
 }
