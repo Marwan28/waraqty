@@ -50,7 +50,7 @@ class SubjectSelectionStrings {
 }
 
 class PaperTypesStrings {
-  static const String step3Of3 = 'الخطوة ٣ من ٣';
+  static const String step3Of3 = 'الخطوة 3 من 3';
   static const String selectPaperTypeTitle = 'هتعمل إيه؟';
   static const String selectPaperTypeSubtitle =
       'اختار نوع الورقة اللي محتاج تجهزها';
@@ -58,4 +58,5 @@ class PaperTypesStrings {
   static const String bookletSubtitle = 'تجميع أسئلة للتدريب والمراجعة';
   static const String examTitle = 'امتحان';
   static const String examSubtitle = 'ورقة منظمة وجاهزة للطباعة';
+  static const String start = 'ابدأ';
 }

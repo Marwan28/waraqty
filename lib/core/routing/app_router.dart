@@ -59,15 +59,15 @@ class AppRouter {
             path: AppRoutes.documentType,
             builder: (context, state) => const PaperTypeScreen(),
           ),
+          GoRoute(
+            path: AppRoutes.questionsSelection,
+            builder: (context, state) => const Scaffold(
+              body: Center(child: Text('Questions Selection Screen')),
+            ),
+          ),
         ],
       ),
 
-      GoRoute(
-        path: AppRoutes.questionsSelection,
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Questions Selection Screen')),
-        ),
-      ),
       GoRoute(
         path: AppRoutes.documentSummary,
         builder: (context, state) => const Scaffold(
