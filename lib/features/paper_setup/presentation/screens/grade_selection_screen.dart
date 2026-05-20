@@ -8,7 +8,7 @@ import 'package:waraqty/core/theme/app_colors.dart';
 import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/grade_entity.dart';
 import 'package:waraqty/features/paper_setup/presentation/cubit/paper_setup_cubit.dart';
-import 'package:waraqty/features/paper_setup/presentation/widgets/grade_card.dart';
+import 'package:waraqty/features/paper_setup/presentation/widgets/grade_selection/grade_card.dart';
 import 'package:waraqty/features/paper_setup/presentation/widgets/paper_setup_header.dart';
 
 class GradeSelectionScreen extends StatelessWidget {

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
-import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/theme/app_colors.dart';
 import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/core/theme/app_text_styles.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/grade_entity.dart';
+import 'package:waraqty/features/paper_setup/presentation/widgets/grade_selection/grade_meta_text.dart';
+import 'package:waraqty/features/paper_setup/presentation/widgets/grade_selection/grade_number_badge.dart';
 
 class GradeCard extends StatelessWidget {
   const GradeCard({
@@ -40,7 +41,7 @@ class GradeCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(22.r),
-        border: Border.all(color: borderColor, width: isSelected ? 1.4 : 1),
+        border: Border.all(color: borderColor, width: isSelected ? 1.4.w : 1.w),
       ),
       child: Material(
         color: Colors.transparent,
@@ -51,7 +52,7 @@ class GradeCard extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 17.h),
             child: Row(
               children: [
-                _GradeNumberBadge(
+                GradeNumberBadge(
                   number: grade.gradeLevel,
                   backgroundColor: numberBackgroundColor,
                   foregroundColor: numberForegroundColor,
@@ -72,7 +73,7 @@ class GradeCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 4.h),
-                      _GradeMetaText(grade: grade),
+                      GradeMetaText(grade: grade),
                     ],
                   ),
                 ),
@@ -85,90 +86,6 @@ class GradeCard extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _GradeMetaText extends StatelessWidget {
-  const _GradeMetaText({required this.grade});
-
-  final GradeEntity grade;
-
-  @override
-  Widget build(BuildContext context) {
-    final style = AppTextStyles.bodySmall.copyWith(
-      color: const Color(AppColors.textSecondary),
-      fontSize: 12.5.sp,
-      fontWeight: FontWeight.w400,
-      height: 1.4,
-    );
-
-    return Row(
-      children: [
-        Icon(
-          LucideIcons.bookOpenCheck,
-          size: 14.sp,
-          color: const Color(AppColors.textSecondary),
-        ),
-        SizedBox(width: 4.w),
-        Flexible(
-          child: Text(
-            '${grade.subjectsCount} ${GradeSelectionStrings.availableSubject}',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: style,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.w),
-          child: Text(
-            '•',
-            style: style.copyWith(
-              color: const Color(AppColors.primary),
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-        Flexible(
-          child: Text(
-            '${grade.questionsCount} ${GradeSelectionStrings.questions}',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: style,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _GradeNumberBadge extends StatelessWidget {
-  const _GradeNumberBadge({
-    required this.number,
-    required this.backgroundColor,
-    required this.foregroundColor,
-  });
-
-  final String number;
-  final Color backgroundColor;
-  final Color foregroundColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 58.w,
-      height: 58.w,
-      decoration: BoxDecoration(color: backgroundColor, shape: BoxShape.circle),
-      alignment: Alignment.center,
-      child: Text(
-        number,
-        style: AppTextStyles.titleMedium.copyWith(
-          color: foregroundColor,
-          fontSize: 17.sp,
-          fontWeight: FontWeight.w700,
-          height: 1,
         ),
       ),
     );

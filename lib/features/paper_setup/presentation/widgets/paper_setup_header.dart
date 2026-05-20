@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:waraqty/core/theme/app_colors.dart';
 import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/core/theme/app_text_styles.dart';
+import 'package:waraqty/features/paper_setup/presentation/widgets/paper_setup_back_button.dart';
 
 class PaperSetupHeader extends StatelessWidget {
   const PaperSetupHeader({
@@ -31,6 +31,10 @@ class PaperSetupHeader extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (onBackPressed != null) ...[
+            PaperSetupBackButton(onPressed: onBackPressed!),
+            SizedBox(width: AppSpacing.lg.w),
+          ],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,36 +62,7 @@ class PaperSetupHeader extends StatelessWidget {
               ],
             ),
           ),
-          if (onBackPressed != null) ...[
-            SizedBox(width: AppSpacing.lg.w),
-            _PaperSetupBackButton(onPressed: onBackPressed!),
-          ],
         ],
-      ),
-    );
-  }
-}
-
-class _PaperSetupBackButton extends StatelessWidget {
-  const _PaperSetupBackButton({required this.onPressed});
-
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 52.w,
-      height: 52.w,
-      child: OutlinedButton(
-        onPressed: onPressed,
-        style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.zero,
-          shape: const CircleBorder(),
-          side: const BorderSide(color: Color(AppColors.border)),
-          foregroundColor: const Color(AppColors.textPrimary),
-          backgroundColor: const Color(AppColors.surface),
-        ),
-        child: Icon(LucideIcons.chevronLeft, size: 22.sp),
       ),
     );
   }

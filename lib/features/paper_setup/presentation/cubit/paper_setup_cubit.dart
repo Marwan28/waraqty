@@ -43,7 +43,7 @@ class PaperSetupCubit extends Cubit<PaperSetupState> {
       title: PaperSetupStrings.socialStudiesTitle,
       statusLabel: PaperSetupStrings.availableNow,
       isAvailable: true,
-      questionsCount: 200,
+      questionsCount: 280,
       questionsCountPrefix: PaperSetupStrings.questionsBankSubtitlePrefix,
       questionsCountSuffix: PaperSetupStrings.questionsBankSubtitleSuffix,
     ),
