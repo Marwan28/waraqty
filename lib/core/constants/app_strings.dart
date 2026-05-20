@@ -21,10 +21,9 @@ class AppStrings {
 }
 
 class GradeSelectionStrings {
-  static const String step1Of3 = 'الخطوة ١ من ٣';
-  static const String selectGradeTitle = 'اختار الصف الدراسي';
-  static const String selectGradeSubtitle =
-      'حدد الصف اللي هتجهز له الملزمة أو الامتحان';
+  static const String step1Of3 = 'الخطوة 1 من 3';
+  static const String selectGradeTitle = 'اختر الصف الدراسي';
+  static const String selectGradeSubtitle = 'ابدأ ورقتك من الصف المناسب';
   static const String gradeFourTitle = 'الصف الرابع الابتدائي';
   static const String gradeFiveTitle = 'الصف الخامس الابتدائي';
   static const String gradeSixTitle = 'الصف السادس الابتدائي';

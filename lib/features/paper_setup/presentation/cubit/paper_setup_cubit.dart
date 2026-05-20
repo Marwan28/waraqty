@@ -16,7 +16,7 @@ class PaperSetupCubit extends Cubit<PaperSetupState> {
       title: GradeSelectionStrings.gradeFourTitle,
       subtitle: GradeSelectionStrings.socialStudiesOnly,
       gradeLevel: GradeSelectionStrings.gradeFourNumber,
-      questionsCount: 200,
+      questionsCount: 240,
       subjectsCount: 1,
     ),
     GradeEntity(
@@ -24,7 +24,7 @@ class PaperSetupCubit extends Cubit<PaperSetupState> {
       title: GradeSelectionStrings.gradeFiveTitle,
       subtitle: GradeSelectionStrings.socialStudiesOnly,
       gradeLevel: GradeSelectionStrings.gradeFiveNumber,
-      questionsCount: 200,
+      questionsCount: 312,
       subjectsCount: 1,
     ),
     GradeEntity(
@@ -32,7 +32,7 @@ class PaperSetupCubit extends Cubit<PaperSetupState> {
       title: GradeSelectionStrings.gradeSixTitle,
       subtitle: GradeSelectionStrings.socialStudiesOnly,
       gradeLevel: GradeSelectionStrings.gradeSixNumber,
-      questionsCount: 200,
+      questionsCount: 286,
       subjectsCount: 1,
     ),
   ];
