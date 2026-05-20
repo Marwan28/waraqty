@@ -35,7 +35,7 @@ class GradeSelectionStrings {
   static const String questions = 'سؤال';
 }
 
-class PaperSetupStrings {
+class SubjectSelectionStrings {
   static const String step2Of3 = 'الخطوة 2 من 3';
   static const String selectSubjectTitle = 'اختر المادة';
   static const String selectSubjectSubtitle = 'مواد جديدة هتنزل قريبًا';

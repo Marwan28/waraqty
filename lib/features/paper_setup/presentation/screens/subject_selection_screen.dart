@@ -35,9 +35,9 @@ class SubjectSelectionScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 PaperSetupHeader(
-                  step: PaperSetupStrings.step2Of3,
-                  title: PaperSetupStrings.selectSubjectTitle,
-                  subtitle: PaperSetupStrings.selectSubjectSubtitle,
+                  step: SubjectSelectionStrings.step2Of3,
+                  title: SubjectSelectionStrings.selectSubjectTitle,
+                  subtitle: SubjectSelectionStrings.selectSubjectSubtitle,
                   onBackPressed: context.pop,
                 ),
                 Divider(
