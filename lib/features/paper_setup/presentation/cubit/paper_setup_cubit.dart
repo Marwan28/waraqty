@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:waraqty/core/constants/app_strings.dart';
+import 'package:waraqty/core/enums/grade_level.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/grade_entity.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/paper_type_entity.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/subject_entity.dart';
@@ -12,26 +13,23 @@ class PaperSetupCubit extends Cubit<PaperSetupState> {
 
   final List<GradeEntity> grades = const [
     GradeEntity(
-      id: 'grade_4',
+      level: GradeLevel.grade4,
       title: GradeSelectionStrings.gradeFourTitle,
       subtitle: GradeSelectionStrings.socialStudiesOnly,
-      gradeLevel: GradeSelectionStrings.gradeFourNumber,
       questionsCount: 240,
       subjectsCount: 1,
     ),
     GradeEntity(
-      id: 'grade_5',
+      level: GradeLevel.grade5,
       title: GradeSelectionStrings.gradeFiveTitle,
       subtitle: GradeSelectionStrings.socialStudiesOnly,
-      gradeLevel: GradeSelectionStrings.gradeFiveNumber,
       questionsCount: 312,
       subjectsCount: 1,
     ),
     GradeEntity(
-      id: 'grade_6',
+      level: GradeLevel.grade6,
       title: GradeSelectionStrings.gradeSixTitle,
       subtitle: GradeSelectionStrings.socialStudiesOnly,
-      gradeLevel: GradeSelectionStrings.gradeSixNumber,
       questionsCount: 286,
       subjectsCount: 1,
     ),

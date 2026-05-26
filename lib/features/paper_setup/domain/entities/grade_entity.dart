@@ -1,17 +1,20 @@
+import 'package:waraqty/core/enums/grade_level.dart';
+
 class GradeEntity {
-  final String id;
+  final GradeLevel level;
   final String title;
   final String subtitle;
-  final String gradeLevel;
   final int questionsCount;
   final int subjectsCount;
 
   const GradeEntity({
-    required this.id,
+    required this.level,
     required this.title,
     required this.subtitle,
-    required this.gradeLevel,
     required this.questionsCount,
     required this.subjectsCount,
   });
+
+  String get id => level.id;
+  String get gradeLevel => level.arabicNumber;
 }
