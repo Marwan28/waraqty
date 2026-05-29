@@ -86,6 +86,38 @@ void main() {
       },
     );
 
+    test(
+      'returns a valid answer for every question in the local bank',
+      () async {
+        var totalQuestions = 0;
+
+        for (final grade in GradeLevel.values) {
+          for (final category in QuestionCategoryType.values) {
+            final questions = await dataSource.getQuestions(
+              grade: grade,
+              subjectId: SocialStudiesQuestions.subjectId,
+              category: category,
+            );
+
+            totalQuestions += questions.length;
+
+            for (final question in questions) {
+              final answer = question.answerText?.trim() ?? '';
+
+              expect(answer, isNotEmpty, reason: question.id);
+              expect(
+                answer.toLowerCase(),
+                isNot('undefined'),
+                reason: question.id,
+              );
+            }
+          }
+        }
+
+        expect(totalQuestions, 1200);
+      },
+    );
+
     test('returns empty lists for unsupported subjects', () async {
       final categories = await dataSource.getCategories(
         grade: GradeLevel.grade4,

@@ -12295,7 +12295,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 1: بين الموقع الجغرافي وأصبحت مصر مركزًا مهمًا للتجارة والاتصال من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'موقع مصر يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموقع والمساحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'موقع مصر',
@@ -12308,7 +12309,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 2: بين موقع مصر وزادت أهمية مصر التجارية والحضارية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'أهمية الموقع يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموقع والمساحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'أهمية الموقع',
@@ -12321,7 +12323,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 3: بين الحدود السياسية وسهل تحديد مساحة الدولة وإدارتها من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'حدود مصر يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموقع والمساحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموقع والمساحة',
       lessonName: 'حدود مصر',
@@ -12334,7 +12337,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 4: بين البحر المتوسط ونشطت التجارة والسياحة على الساحل الشمالي من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'حدود مصر الشمالية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموقع والمساحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'حدود مصر الشمالية',
@@ -12347,7 +12351,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 5: بين البحر الأحمر وزادت أهمية الموانئ والسياحة البحرية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'حدود مصر الشرقية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموقع والمساحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'حدود مصر الشرقية',
@@ -12360,7 +12365,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 6: بين نهر النيل وقامت الزراعة واستقر السكان حوله من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'نهر النيل يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموارد الطبيعية',
       lessonName: 'نهر النيل',
@@ -12373,7 +12379,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 7: بين الوادي وتركز السكان والأنشطة الزراعية حول النيل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الوادي والدلتا يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل سطح مصر.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'سطح مصر',
       lessonName: 'الوادي والدلتا',
@@ -12386,7 +12393,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 8: بين الدلتا وزادت الزراعة وكثافة السكان في شمال مصر من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'دلتا النيل يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل سطح مصر.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'سطح مصر',
       lessonName: 'دلتا النيل',
@@ -12399,7 +12407,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 9: بين الصحراء الشرقية وظهرت أنشطة التعدين والطرق الصحراوية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'صحاري مصر يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل سطح مصر.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'سطح مصر',
       lessonName: 'صحاري مصر',
@@ -12412,7 +12421,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 10: بين الصحراء الغربية وتنوعت البيئات والموارد في مصر من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'صحاري مصر يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل سطح مصر.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'سطح مصر',
       lessonName: 'صحاري مصر',
@@ -12425,7 +12435,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 11: بين شبه جزيرة سيناء وزادت أهمية مصر الاستراتيجية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'سيناء يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل سطح مصر.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'سطح مصر',
       lessonName: 'سيناء',
@@ -12438,7 +12449,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 12: بين الخريطة وسهلت فهم الظواهر الجغرافية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'قراءة الخريطة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل المهارات الجغرافية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'المهارات الجغرافية',
       lessonName: 'قراءة الخريطة',
@@ -12451,7 +12463,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 13: بين مفتاح الخريطة وأصبحت قراءة الخريطة أدق وأسهل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'عناصر الخريطة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل المهارات الجغرافية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المهارات الجغرافية',
       lessonName: 'عناصر الخريطة',
@@ -12464,7 +12477,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 14: بين مقياس الرسم وأمكن حساب المسافات بين الأماكن من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'عناصر الخريطة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل المهارات الجغرافية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المهارات الجغرافية',
       lessonName: 'عناصر الخريطة',
@@ -12477,7 +12491,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 15: بين الاتجاهات الأصلية وسهل تحديد الأماكن على الخريطة من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الاتجاهات يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل المهارات الجغرافية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'المهارات الجغرافية',
       lessonName: 'الاتجاهات',
@@ -12490,7 +12505,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 16: بين الموارد الطبيعية وزاد الإنتاج عندما أحسن الإنسان استغلالها من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'أنواع الموارد يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموارد الطبيعية',
       lessonName: 'أنواع الموارد',
@@ -12503,7 +12519,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 17: بين الموارد البشرية وتحسنت التنمية بزيادة التعليم والتدريب من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'السكان والعمل يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد البشرية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموارد البشرية',
       lessonName: 'السكان والعمل',
@@ -12516,7 +12533,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 18: بين المياه وزادت الزراعة والاستقرار قرب مصادر المياه من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المياه يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموارد الطبيعية',
       lessonName: 'المياه',
@@ -12529,7 +12547,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 19: بين التربة الخصبة وزاد الإنتاج الزراعي في الوادي والدلتا من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'التربة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموارد الطبيعية',
       lessonName: 'التربة',
@@ -12542,7 +12561,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 20: بين المعادن وقامت صناعات تعتمد على الخامات المعدنية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المعادن يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الموارد الطبيعية',
       lessonName: 'المعادن',
@@ -12555,7 +12575,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 21: بين مصادر الطاقة وتطورت الصناعة والنقل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الطاقة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموارد الطبيعية',
       lessonName: 'الطاقة',
@@ -12568,7 +12589,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 22: بين الزراعة وتوفرت محاصيل وفرص عمل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'النشاط الزراعي يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النشاط الزراعي',
@@ -12581,7 +12603,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 23: بين الصناعة وتنوع الإنتاج وزاد الدخل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'النشاط الصناعي يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النشاط الصناعي',
@@ -12594,7 +12617,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 24: بين التجارة ونشطت الأسواق وتوفرت السلع من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'النشاط التجاري يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النشاط التجاري',
@@ -12607,7 +12631,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 25: بين السياحة وزاد الدخل القومي وتنشطت الخدمات من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'السياحة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'السياحة',
@@ -12620,7 +12645,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 26: بين النقل وسهلت حركة التجارة والسكان من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'النقل والمواصلات يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النقل والمواصلات',
@@ -12633,7 +12659,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 27: بين السكان وزادت الحاجة إلى الخدمات وفرص العمل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'السكان في مصر يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل السكان.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'السكان',
       lessonName: 'السكان في مصر',
@@ -12646,7 +12673,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 28: بين الكثافة السكانية وعرفنا مناطق الازدحام ومناطق الندرة من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'توزيع السكان يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل السكان.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'السكان',
       lessonName: 'توزيع السكان',
@@ -12659,7 +12687,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 29: بين المحافظة وتحسنت إدارة الخدمات المحلية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المحافظة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الإدارة المحلية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الإدارة المحلية',
       lessonName: 'المحافظة',
@@ -12672,7 +12701,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 30: بين المدينة وزادت فرص العمل والخدمات في المدن من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المدينة والقرية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الإدارة المحلية.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الإدارة المحلية',
       lessonName: 'المدينة والقرية',
@@ -12685,7 +12715,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 31: بين القرية واستمر الإنتاج الزراعي في الريف من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المدينة والقرية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الإدارة المحلية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الإدارة المحلية',
       lessonName: 'المدينة والقرية',
@@ -12698,7 +12729,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 32: بين البيئة الساحلية ونشط الصيد والسياحة والموانئ من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'البيئة الساحلية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل البيئات المصرية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'البيئات المصرية',
       lessonName: 'البيئة الساحلية',
@@ -12711,7 +12743,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 33: بين البيئة الزراعية وزاد الإنتاج الزراعي وكثافة السكان من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'البيئة الزراعية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل البيئات المصرية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'البيئات المصرية',
       lessonName: 'البيئة الزراعية',
@@ -12724,7 +12757,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 34: بين البيئة الصحراوية وظهرت أنشطة التعدين والسياحة الصحراوية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'البيئة الصحراوية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل البيئات المصرية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'البيئات المصرية',
       lessonName: 'البيئة الصحراوية',
@@ -12737,7 +12771,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 35: بين التراث وزاد شعور الناس بالانتماء من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'التراث يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل التراث والآثار.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'التراث والآثار',
       lessonName: 'التراث',
@@ -12750,7 +12785,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 36: بين الآثار ونشطت السياحة وزادت معرفة التاريخ من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'آثار مصر يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل التراث والآثار.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'التراث والآثار',
       lessonName: 'آثار مصر',
@@ -12763,7 +12799,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 37: بين المناخ وتأثرت الزراعة والملابس والأنشطة من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المناخ يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل المناخ والطقس.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المناخ والطقس',
       lessonName: 'المناخ',
@@ -12776,7 +12813,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 38: بين الطقس وتغيرت أنشطة الناس اليومية حسب الحالة الجوية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الطقس يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل المناخ والطقس.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المناخ والطقس',
       lessonName: 'الطقس',
@@ -12789,7 +12827,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 39: بين المحاصيل الزراعية وتوفر الغذاء والمواد الخام من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المحاصيل يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'المحاصيل',
@@ -12802,7 +12841,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 40: بين القمح وزاد الأمن الغذائي للسكان من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'محصول القمح يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'محصول القمح',
@@ -12815,7 +12855,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 41: بين القطن ونشطت صناعة الغزل والنسيج من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'محصول القطن يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الأنشطة الاقتصادية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'محصول القطن',
@@ -12828,7 +12869,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 42: بين الخدمات وتحسنت حياة السكان في المدن والقرى من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الخدمات العامة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل السكان والخدمات.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'السكان والخدمات',
       lessonName: 'الخدمات العامة',
@@ -12841,7 +12883,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 43: بين التعليم وزادت قدرة السكان على العمل والإنتاج من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'التعليم يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل السكان والخدمات.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'السكان والخدمات',
       lessonName: 'التعليم',
@@ -12854,7 +12897,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 44: بين الصحة وتحسنت قدرة السكان على العمل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الصحة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل السكان والخدمات.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'السكان والخدمات',
       lessonName: 'الصحة',
@@ -12867,7 +12911,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 45: بين الطرق وسهل الانتقال بين المدن والقرى من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'شبكة الطرق يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل النقل والمواصلات.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'النقل والمواصلات',
       lessonName: 'شبكة الطرق',
@@ -12880,7 +12925,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 46: بين السكك الحديدية وزاد ربط المحافظات وتسهيل النقل من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'القطارات يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل النقل والمواصلات.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'النقل والمواصلات',
       lessonName: 'القطارات',
@@ -12893,7 +12939,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 47: بين الموانئ ونشطت حركة التجارة الخارجية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الموانئ يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل النقل والمواصلات.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'النقل والمواصلات',
       lessonName: 'الموانئ',
@@ -12906,7 +12953,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 48: بين العاصمة وسهل تنظيم شؤون الدولة من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'العاصمة يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الإدارة المحلية.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الإدارة المحلية',
       lessonName: 'العاصمة',
@@ -12919,7 +12967,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 49: بين الواحات ونشأت مجتمعات وأنشطة زراعية في الصحراء من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'الواحات يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل البيئات المصرية.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'البيئات المصرية',
       lessonName: 'الواحات',
@@ -12932,7 +12981,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.compare,
       questionText:
           'قارن رقم 50: بين المياه الجوفية وأمكن تعمير بعض المناطق الصحراوية من حيث الفكرة الأساسية.',
-      answerText: 'undefined',
+      answerText:
+          'المياه الجوفية يوضح جانبًا من الدرس، أما المفهوم الآخر فيوضح جانبًا مختلفًا يكمله، وبذلك تظهر العلاقة داخل الموارد الطبيعية.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الموارد الطبيعية',
       lessonName: 'المياه الجوفية',
@@ -14348,7 +14398,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 1: على دراسة الموقع الجغرافي وفهم أثره في الموقع والمساحة؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة موقع مصر فهم أهميته داخل الموقع والمساحة، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'موقع مصر',
@@ -14361,7 +14412,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 2: على دراسة موقع مصر وفهم أثره في الموقع والمساحة؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة أهمية الموقع فهم أهميته داخل الموقع والمساحة، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'أهمية الموقع',
@@ -14374,7 +14426,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 3: على دراسة الحدود السياسية وفهم أثره في الموقع والمساحة؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة حدود مصر فهم أهميته داخل الموقع والمساحة، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموقع والمساحة',
       lessonName: 'حدود مصر',
@@ -14387,7 +14440,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 4: على دراسة البحر المتوسط وفهم أثره في الموقع والمساحة؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة حدود مصر الشمالية فهم أهميته داخل الموقع والمساحة، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'حدود مصر الشمالية',
@@ -14400,7 +14454,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 5: على دراسة البحر الأحمر وفهم أثره في الموقع والمساحة؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة حدود مصر الشرقية فهم أهميته داخل الموقع والمساحة، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموقع والمساحة',
       lessonName: 'حدود مصر الشرقية',
@@ -14413,7 +14468,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 6: على دراسة نهر النيل وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة نهر النيل فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموارد الطبيعية',
       lessonName: 'نهر النيل',
@@ -14426,7 +14482,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 7: على دراسة الوادي وفهم أثره في سطح مصر؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الوادي والدلتا فهم أهميته داخل سطح مصر، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'سطح مصر',
       lessonName: 'الوادي والدلتا',
@@ -14439,7 +14496,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 8: على دراسة الدلتا وفهم أثره في سطح مصر؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة دلتا النيل فهم أهميته داخل سطح مصر، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'سطح مصر',
       lessonName: 'دلتا النيل',
@@ -14452,7 +14510,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 9: على دراسة الصحراء الشرقية وفهم أثره في سطح مصر؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة صحاري مصر فهم أهميته داخل سطح مصر، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'سطح مصر',
       lessonName: 'صحاري مصر',
@@ -14465,7 +14524,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 10: على دراسة الصحراء الغربية وفهم أثره في سطح مصر؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة صحاري مصر فهم أهميته داخل سطح مصر، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'سطح مصر',
       lessonName: 'صحاري مصر',
@@ -14478,7 +14538,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 11: على دراسة شبه جزيرة سيناء وفهم أثره في سطح مصر؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة سيناء فهم أهميته داخل سطح مصر، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'سطح مصر',
       lessonName: 'سيناء',
@@ -14491,7 +14552,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 12: على دراسة الخريطة وفهم أثره في المهارات الجغرافية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة قراءة الخريطة فهم أهميته داخل المهارات الجغرافية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'المهارات الجغرافية',
       lessonName: 'قراءة الخريطة',
@@ -14504,7 +14566,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 13: على دراسة مفتاح الخريطة وفهم أثره في المهارات الجغرافية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة عناصر الخريطة فهم أهميته داخل المهارات الجغرافية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المهارات الجغرافية',
       lessonName: 'عناصر الخريطة',
@@ -14517,7 +14580,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 14: على دراسة مقياس الرسم وفهم أثره في المهارات الجغرافية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة عناصر الخريطة فهم أهميته داخل المهارات الجغرافية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المهارات الجغرافية',
       lessonName: 'عناصر الخريطة',
@@ -14530,7 +14594,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 15: على دراسة الاتجاهات الأصلية وفهم أثره في المهارات الجغرافية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الاتجاهات فهم أهميته داخل المهارات الجغرافية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'المهارات الجغرافية',
       lessonName: 'الاتجاهات',
@@ -14543,7 +14608,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 16: على دراسة الموارد الطبيعية وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة أنواع الموارد فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموارد الطبيعية',
       lessonName: 'أنواع الموارد',
@@ -14556,7 +14622,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 17: على دراسة الموارد البشرية وفهم أثره في الموارد البشرية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة السكان والعمل فهم أهميته داخل الموارد البشرية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموارد البشرية',
       lessonName: 'السكان والعمل',
@@ -14569,7 +14636,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 18: على دراسة المياه وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المياه فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموارد الطبيعية',
       lessonName: 'المياه',
@@ -14582,7 +14650,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 19: على دراسة التربة الخصبة وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة التربة فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الموارد الطبيعية',
       lessonName: 'التربة',
@@ -14595,7 +14664,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 20: على دراسة المعادن وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المعادن فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الموارد الطبيعية',
       lessonName: 'المعادن',
@@ -14608,7 +14678,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 21: على دراسة مصادر الطاقة وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الطاقة فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الموارد الطبيعية',
       lessonName: 'الطاقة',
@@ -14621,7 +14692,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 22: على دراسة الزراعة وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة النشاط الزراعي فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النشاط الزراعي',
@@ -14634,7 +14706,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 23: على دراسة الصناعة وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة النشاط الصناعي فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النشاط الصناعي',
@@ -14647,7 +14720,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 24: على دراسة التجارة وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة النشاط التجاري فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النشاط التجاري',
@@ -14660,7 +14734,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 25: على دراسة السياحة وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة السياحة فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'السياحة',
@@ -14673,7 +14748,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 26: على دراسة النقل وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة النقل والمواصلات فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'النقل والمواصلات',
@@ -14686,7 +14762,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 27: على دراسة السكان وفهم أثره في السكان؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة السكان في مصر فهم أهميته داخل السكان، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'السكان',
       lessonName: 'السكان في مصر',
@@ -14699,7 +14776,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 28: على دراسة الكثافة السكانية وفهم أثره في السكان؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة توزيع السكان فهم أهميته داخل السكان، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'السكان',
       lessonName: 'توزيع السكان',
@@ -14712,7 +14790,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 29: على دراسة المحافظة وفهم أثره في الإدارة المحلية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المحافظة فهم أهميته داخل الإدارة المحلية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الإدارة المحلية',
       lessonName: 'المحافظة',
@@ -14725,7 +14804,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 30: على دراسة المدينة وفهم أثره في الإدارة المحلية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المدينة والقرية فهم أهميته داخل الإدارة المحلية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الإدارة المحلية',
       lessonName: 'المدينة والقرية',
@@ -14738,7 +14818,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 31: على دراسة القرية وفهم أثره في الإدارة المحلية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المدينة والقرية فهم أهميته داخل الإدارة المحلية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الإدارة المحلية',
       lessonName: 'المدينة والقرية',
@@ -14751,7 +14832,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 32: على دراسة البيئة الساحلية وفهم أثره في البيئات المصرية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة البيئة الساحلية فهم أهميته داخل البيئات المصرية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'البيئات المصرية',
       lessonName: 'البيئة الساحلية',
@@ -14764,7 +14846,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 33: على دراسة البيئة الزراعية وفهم أثره في البيئات المصرية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة البيئة الزراعية فهم أهميته داخل البيئات المصرية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'البيئات المصرية',
       lessonName: 'البيئة الزراعية',
@@ -14777,7 +14860,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 34: على دراسة البيئة الصحراوية وفهم أثره في البيئات المصرية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة البيئة الصحراوية فهم أهميته داخل البيئات المصرية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'البيئات المصرية',
       lessonName: 'البيئة الصحراوية',
@@ -14790,7 +14874,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 35: على دراسة التراث وفهم أثره في التراث والآثار؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة التراث فهم أهميته داخل التراث والآثار، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'التراث والآثار',
       lessonName: 'التراث',
@@ -14803,7 +14888,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 36: على دراسة الآثار وفهم أثره في التراث والآثار؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة آثار مصر فهم أهميته داخل التراث والآثار، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'التراث والآثار',
       lessonName: 'آثار مصر',
@@ -14816,7 +14902,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 37: على دراسة المناخ وفهم أثره في المناخ والطقس؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المناخ فهم أهميته داخل المناخ والطقس، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المناخ والطقس',
       lessonName: 'المناخ',
@@ -14829,7 +14916,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 38: على دراسة الطقس وفهم أثره في المناخ والطقس؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الطقس فهم أهميته داخل المناخ والطقس، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'المناخ والطقس',
       lessonName: 'الطقس',
@@ -14842,7 +14930,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 39: على دراسة المحاصيل الزراعية وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المحاصيل فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'المحاصيل',
@@ -14855,7 +14944,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 40: على دراسة القمح وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة محصول القمح فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'محصول القمح',
@@ -14868,7 +14958,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 41: على دراسة القطن وفهم أثره في الأنشطة الاقتصادية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة محصول القطن فهم أهميته داخل الأنشطة الاقتصادية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'الأنشطة الاقتصادية',
       lessonName: 'محصول القطن',
@@ -14881,7 +14972,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 42: على دراسة الخدمات وفهم أثره في السكان والخدمات؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الخدمات العامة فهم أهميته داخل السكان والخدمات، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'السكان والخدمات',
       lessonName: 'الخدمات العامة',
@@ -14894,7 +14986,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 43: على دراسة التعليم وفهم أثره في السكان والخدمات؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة التعليم فهم أهميته داخل السكان والخدمات، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'السكان والخدمات',
       lessonName: 'التعليم',
@@ -14907,7 +15000,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 44: على دراسة الصحة وفهم أثره في السكان والخدمات؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الصحة فهم أهميته داخل السكان والخدمات، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'السكان والخدمات',
       lessonName: 'الصحة',
@@ -14920,7 +15014,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 45: على دراسة الطرق وفهم أثره في النقل والمواصلات؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة شبكة الطرق فهم أهميته داخل النقل والمواصلات، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'النقل والمواصلات',
       lessonName: 'شبكة الطرق',
@@ -14933,7 +15028,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 46: على دراسة السكك الحديدية وفهم أثره في النقل والمواصلات؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة القطارات فهم أهميته داخل النقل والمواصلات، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'النقل والمواصلات',
       lessonName: 'القطارات',
@@ -14946,7 +15042,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 47: على دراسة الموانئ وفهم أثره في النقل والمواصلات؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الموانئ فهم أهميته داخل النقل والمواصلات، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'النقل والمواصلات',
       lessonName: 'الموانئ',
@@ -14959,7 +15056,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 48: على دراسة العاصمة وفهم أثره في الإدارة المحلية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة العاصمة فهم أهميته داخل الإدارة المحلية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.medium,
       unitName: 'الإدارة المحلية',
       lessonName: 'العاصمة',
@@ -14972,7 +15070,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 49: على دراسة الواحات وفهم أثره في البيئات المصرية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة الواحات فهم أهميته داخل البيئات المصرية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.easy,
       unitName: 'البيئات المصرية',
       lessonName: 'الواحات',
@@ -14985,7 +15084,8 @@ class SocialStudiesQuestions {
       category: QuestionCategoryType.whatHappens,
       questionText:
           'ما النتائج المترتبة رقم 50: على دراسة المياه الجوفية وفهم أثره في الموارد الطبيعية؟',
-      answerText: 'undefined',
+      answerText:
+          'ينتج عن دراسة المياه الجوفية فهم أهميته داخل الموارد الطبيعية، وربط السبب بالنتيجة بصورة واضحة.',
       difficulty: QuestionDifficulty.hard,
       unitName: 'الموارد الطبيعية',
       lessonName: 'المياه الجوفية',

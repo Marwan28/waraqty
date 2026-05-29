@@ -15,6 +15,36 @@ class OnboardingStrings {
   static const String startNow = 'ابدأ الآن';
 }
 
+class QuestionSelectionStrings {
+  static const String step = 'اختيار الأسئلة';
+  static const String title = 'استوديو الأسئلة';
+  static const String subtitle = 'حدد التصنيف والأسئلة اللي هتضاف للورقة';
+  static const String questions = 'سؤال';
+  static const String selected = 'مختار';
+  static const String categoryLimitTitle = 'عدد أسئلة التصنيف';
+  static const String categoryLimitSubtitle = 'حدد العدد أو سيب التصنيف مفتوح';
+  static const String unlimited = 'غير محدد';
+  static const String setLimit = 'حدد عدد';
+  static const String selectAll = 'اختار الكل';
+  static const String clearCategory = 'مسح التصنيف';
+  static const String clearAll = 'مسح الكل';
+  static const String continueButton = 'متابعة';
+  static const String noSelectedQuestions = 'لسه مختارتش أسئلة';
+  static const String selectedQuestions = 'أسئلة مختارة';
+  static const String emptyTitle = 'مفيش أسئلة في التصنيف ده';
+  static const String emptySubtitle = 'جرّب تصنيف تاني أو راجع بنك الأسئلة.';
+  static const String errorTitle = 'حصلت مشكلة';
+  static const String retry = 'إعادة المحاولة';
+  static const String answer = 'الإجابة';
+  static const String unit = 'الوحدة';
+  static const String lesson = 'الدرس';
+  static const String difficulty = 'المستوى';
+  static const String categoryTarget = 'هدف هذا التصنيف';
+  static const String questionBankTitle = 'بنك أسئلة';
+  static const String questionBankMeta = 'سؤال متاح • صعوبة • جودة';
+  static const String draft = 'مسودة الورقة';
+}
+
 class AppStrings {
   static const String appName = 'ورقتي';
   static const String appVersion = '1.0.0';
