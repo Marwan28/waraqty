@@ -104,9 +104,9 @@ class QuestionBankLocalDataSourceImpl implements QuestionBankLocalDataSource {
       case QuestionCategoryType.essay:
         return 'تتناول الإجابة $lesson من حيث معناه وأهميته وعلاقته بـ $unit مع ذكر مثال مناسب.';
       case QuestionCategoryType.compare:
-        return 'يوضح الطالب أوجه الشبه والاختلاف بين العنصرين، مع بيان علاقة كل منهما بدرس $lesson داخل $unit.';
+        return 'تقارن الإجابة بين $lesson والفكرة المرتبطة به، فتوضح أوجه الشبه والاختلاف وأثر كل منهما داخل $unit.';
       case QuestionCategoryType.whatHappens:
-        return 'ينتج عن ذلك فهم أثر $lesson داخل $unit، وربط السبب بالنتيجة بصورة واضحة.';
+        return 'تؤدي دراسة $lesson إلى فهم أثره في $unit، وتحديد النتائج المترتبة عليه وربطها بالسبب بصورة واضحة.';
     }
   }
 

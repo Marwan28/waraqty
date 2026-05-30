@@ -48,7 +48,12 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                _buildHeader(context, loadedState?.selectedQuestionsCount ?? 0),
+                _buildHeader(
+                  context,
+                  selectedQuestionsCount:
+                      loadedState?.selectedQuestionsCount ?? 0,
+                  selectionTarget: loadedState?.totalSelectionTarget ?? 0,
+                ),
                 Divider(
                   height: 1.h,
                   thickness: 1.h,
@@ -68,7 +73,11 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
     );
   }
 
-  Widget _buildHeader(BuildContext context, int selectedQuestionsCount) {
+  Widget _buildHeader(
+    BuildContext context, {
+    required int selectedQuestionsCount,
+    required int selectionTarget,
+  }) {
     final cubit = context.read<QuestionSelectionCubit>();
 
     return Padding(
@@ -107,13 +116,23 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
             ),
           ),
           SizedBox(width: AppSpacing.lg.w),
-          _buildSelectedCountRing(selectedQuestionsCount),
+          _buildSelectedCountRing(
+            selectedQuestionsCount: selectedQuestionsCount,
+            selectionTarget: selectionTarget,
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildSelectedCountRing(int selectedQuestionsCount) {
+  Widget _buildSelectedCountRing({
+    required int selectedQuestionsCount,
+    required int selectionTarget,
+  }) {
+    final progress = selectionTarget <= 0
+        ? 0.08
+        : (selectedQuestionsCount / selectionTarget).clamp(0.08, 1.0);
+
     return SizedBox(
       width: 58.w,
       height: 58.w,
@@ -124,9 +143,7 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
             width: 58.w,
             height: 58.w,
             child: CircularProgressIndicator(
-              value: selectedQuestionsCount == 0
-                  ? 0.08
-                  : (selectedQuestionsCount / 20).clamp(0.08, 1.0),
+              value: progress,
               strokeWidth: 4.w,
               color: const Color(AppColors.primary),
               backgroundColor: const Color(AppColors.border),
@@ -211,9 +228,6 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
                 isSelected: category.type == loadedState.selectedCategory.type,
                 selectedQuestionsCount: loadedState
                     .selectedQuestionsCountForCategory(category.type),
-                isQuestionsLoaded: loadedState.questionsByCategory.containsKey(
-                  category.type,
-                ),
                 onTap: () => context
                     .read<QuestionSelectionCubit>()
                     .selectCategory(category),
@@ -254,7 +268,7 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
             questionsCount: state.questions.length,
             limit: state.currentCategoryLimit,
             onDecreaseLimit: _decreaseLimit,
-            onIncreaseLimit: _increaseLimit,
+            onIncreaseLimit: _canIncreaseLimit(state) ? _increaseLimit : null,
             onSetDefaultLimit: _setDefaultLimit,
             onSetUnlimited: context
                 .read<QuestionSelectionCubit>()
@@ -395,8 +409,16 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
     final nextLimit = currentLimit == null
         ? state.selectedCategory.defaultQuestionLimit
         : currentLimit + 1;
+    final questionsCount = state.questions.length;
+    if (questionsCount <= 0) return;
+    final safeNextLimit = nextLimit > questionsCount
+        ? questionsCount
+        : nextLimit;
 
-    cubit.setCategoryLimit(category: state.selectedCategory, limit: nextLimit);
+    cubit.setCategoryLimit(
+      category: state.selectedCategory,
+      limit: safeNextLimit,
+    );
   }
 
   void _setDefaultLimit() {
@@ -404,9 +426,26 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
     final state = cubit.state;
     if (state is! QuestionSelectionLoaded) return;
 
+    final questionsCount = state.questions.length;
+    if (questionsCount <= 0) return;
+
+    final defaultLimit = state.selectedCategory.defaultQuestionLimit;
+    final safeDefaultLimit = defaultLimit > questionsCount
+        ? questionsCount
+        : defaultLimit;
+
     cubit.setCategoryLimit(
       category: state.selectedCategory,
-      limit: state.selectedCategory.defaultQuestionLimit,
+      limit: safeDefaultLimit,
     );
+  }
+
+  bool _canIncreaseLimit(QuestionSelectionLoaded state) {
+    if (state.questions.isEmpty) return false;
+
+    final currentLimit = state.currentCategoryLimit;
+    if (currentLimit == null) return true;
+
+    return currentLimit < state.questions.length;
   }
 }

@@ -5,18 +5,20 @@ import 'package:waraqty/app/my_app.dart';
 import 'package:waraqty/core/constants/app_strings.dart';
 
 void main() {
-  testWidgets('Waraqty app renders placeholder screen', (
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  testWidgets('Waraqty app renders the first setup screen', (
     WidgetTester tester,
   ) async {
+    SharedPreferences.setMockInitialValues({});
+    final sharedPreferences = await SharedPreferences.getInstance();
+
     await tester.pumpWidget(
-      MyApp(
-        hasSeenOnboarding: true,
-        sharedPreferences: await SharedPreferences.getInstance(),
-      ),
+      MyApp(hasSeenOnboarding: true, sharedPreferences: sharedPreferences),
     );
 
     await tester.pump();
 
-    expect(find.text(AppStrings.appName), findsOneWidget);
+    expect(find.text(GradeSelectionStrings.selectGradeTitle), findsOneWidget);
   });
 }

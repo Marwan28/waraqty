@@ -27,7 +27,7 @@ class QuestionSelectionLimitCard extends StatelessWidget {
   final int questionsCount;
   final int? limit;
   final VoidCallback onDecreaseLimit;
-  final VoidCallback onIncreaseLimit;
+  final VoidCallback? onIncreaseLimit;
   final VoidCallback onSetDefaultLimit;
   final VoidCallback onSetUnlimited;
   final VoidCallback onSelectAll;
@@ -36,9 +36,13 @@ class QuestionSelectionLimitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isUnlimited = limit == null;
-    final progress = questionsCount == 0
+    final targetQuestionsCount = _targetQuestionsCount(
+      questionsCount: questionsCount,
+      limit: limit,
+    );
+    final progress = targetQuestionsCount == 0
         ? 0.0
-        : (selectedQuestionsCount / questionsCount).clamp(0.0, 1.0);
+        : (selectedQuestionsCount / targetQuestionsCount).clamp(0.0, 1.0);
 
     return Container(
       padding: EdgeInsets.all(AppSpacing.xl.w),
@@ -284,5 +288,17 @@ class QuestionSelectionLimitCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  int _targetQuestionsCount({
+    required int questionsCount,
+    required int? limit,
+  }) {
+    if (questionsCount <= 0) return 0;
+    if (limit == null) return questionsCount;
+    if (limit < 1) return 1;
+    if (limit > questionsCount) return questionsCount;
+
+    return limit;
   }
 }

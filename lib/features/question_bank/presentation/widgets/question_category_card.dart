@@ -11,14 +11,12 @@ class QuestionCategoryCard extends StatelessWidget {
     required this.category,
     required this.isSelected,
     required this.selectedQuestionsCount,
-    required this.isQuestionsLoaded,
     required this.onTap,
   });
 
   final QuestionCategoryEntity category;
   final bool isSelected;
   final int selectedQuestionsCount;
-  final bool isQuestionsLoaded;
   final VoidCallback onTap;
 
   @override
