@@ -55,6 +55,18 @@ class QuestionSelectionLoaded extends QuestionSelectionState {
         .toList(growable: false);
   }
 
+  List<QuestionCategoryEntity> get selectedCategories {
+    final categoriesByType = {
+      for (final category in categories) category.type: category,
+    };
+
+    return selectedQuestionsByCategory.entries
+        .where((entry) => entry.value.isNotEmpty)
+        .map((entry) => categoriesByType[entry.key])
+        .whereType<QuestionCategoryEntity>()
+        .toList(growable: false);
+  }
+
   bool get canContinue => allSelectedQuestions.isNotEmpty;
 
   int get selectedQuestionsCount => allSelectedQuestions.length;

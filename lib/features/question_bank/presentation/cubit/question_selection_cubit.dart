@@ -148,10 +148,21 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
     final currentState = state;
     if (currentState is! QuestionSelectionLoaded) return;
 
+    _clearCategoryByType(currentState.selectedCategory.type);
+  }
+
+  void clearCategory(QuestionCategoryEntity category) {
+    _clearCategoryByType(category.type);
+  }
+
+  void _clearCategoryByType(QuestionCategoryType categoryType) {
+    final currentState = state;
+    if (currentState is! QuestionSelectionLoaded) return;
+
     final updatedSelectedQuestions =
         Map<QuestionCategoryType, List<QuestionEntity>>.from(
           currentState.selectedQuestionsByCategory,
-        )..remove(currentState.selectedCategory.type);
+        )..remove(categoryType);
 
     emit(
       currentState.copyWith(
@@ -165,6 +176,48 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
     if (currentState is! QuestionSelectionLoaded) return;
 
     emit(currentState.copyWith(selectedQuestionsByCategory: const {}));
+  }
+
+  void reorderSelectedCategory({
+    required int oldIndex,
+    required int newIndex,
+  }) {
+    final currentState = state;
+    if (currentState is! QuestionSelectionLoaded) return;
+
+    final selectedCategories = currentState.selectedCategories;
+    if (oldIndex < 0 || oldIndex >= selectedCategories.length) return;
+
+    var safeNewIndex = newIndex;
+    if (safeNewIndex > selectedCategories.length) {
+      safeNewIndex = selectedCategories.length;
+    }
+    if (oldIndex < safeNewIndex) safeNewIndex -= 1;
+    if (safeNewIndex < 0 || safeNewIndex >= selectedCategories.length) return;
+    if (oldIndex == safeNewIndex) return;
+
+    final orderedTypes = selectedCategories
+        .map((category) => category.type)
+        .toList(growable: true);
+    final movedType = orderedTypes.removeAt(oldIndex);
+    orderedTypes.insert(safeNewIndex, movedType);
+
+    final previousSelectedQuestions = currentState.selectedQuestionsByCategory;
+    final updatedSelectedQuestions =
+        <QuestionCategoryType, List<QuestionEntity>>{};
+
+    for (final categoryType in orderedTypes) {
+      final questions = previousSelectedQuestions[categoryType];
+      if (questions != null && questions.isNotEmpty) {
+        updatedSelectedQuestions[categoryType] = questions;
+      }
+    }
+
+    emit(
+      currentState.copyWith(
+        selectedQuestionsByCategory: Map.unmodifiable(updatedSelectedQuestions),
+      ),
+    );
   }
 
   void setCategoryLimit({

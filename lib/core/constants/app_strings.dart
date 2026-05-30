@@ -90,3 +90,32 @@ class PaperTypesStrings {
   static const String examSubtitle = 'ورقة منظمة وجاهزة للطباعة';
   static const String start = 'ابدأ';
 }
+
+class DocumentSummaryStrings {
+  static const String summaryStep = 'الخطوة 4 من 5';
+  static const String summaryTitle = 'ملخص الورقة';
+  static const String summarySubtitle = 'راجع تصنيفاتك قبل المتابعة';
+
+  // static const String grade = 'الصف الدراسي';
+  // static const String subject = 'المادة';
+  // static const String paperType = 'نوع الورقة';
+  static const String totalQuestions = 'إجمالي الأسئلة';
+  static const String question = 'سؤال';
+  static const String dividedBy = 'موزعة على';
+  static const String categories = 'تصنيفات';
+  static const addQuestionCategory = 'أضف نوع سؤال';
+  static const String fileData = 'بيانات الملف';
+  static const String selectedCategories = 'التصنيفات المختارة';
+  static const String removeCategory = 'مسح التصنيف';
+  static const String editCategory = 'تعديل التصنيف';
+  static const String selectedQuestionsLabel = 'أسئلة مختارة';
+  static const String filesCount = 'عدد الملفات';
+  static const String oneFile = 'ملف واحد';
+  static const String twoFiles = 'ملفين';
+  static const String previewPdf = 'معاينة PDF';
+  static const String noQuestionsTitle = 'مفيش أسئلة مختارة';
+  static const String noQuestionsSubtitle =
+      'ارجع لاختيار الأسئلة قبل تجهيز الورقة.';
+  // static const String continueButton = 'متابعة';
+  // static const String download = 'تحميل PDF';
+}
