@@ -17,8 +17,8 @@ import 'package:waraqty/features/question_bank/data/repositories/question_bank_r
 import 'package:waraqty/features/question_bank/domain/usecases/get_question_categories_use_case.dart';
 import 'package:waraqty/features/question_bank/domain/usecases/get_questions_by_filter_use_case.dart';
 import 'package:waraqty/features/question_bank/presentation/cubit/question_selection_cubit.dart';
-import 'package:waraqty/features/question_bank/presentation/screens/document_summary_screen.dart';
-import 'package:waraqty/features/question_bank/presentation/screens/question_selection_screen.dart';
+import 'package:waraqty/features/question_bank/presentation/screens/document_summary/document_summary_screen.dart';
+import 'package:waraqty/features/question_bank/presentation/screens/question_selection/question_selection_screen.dart';
 
 class AppRouter {
   final bool hasSeenOnboarding;

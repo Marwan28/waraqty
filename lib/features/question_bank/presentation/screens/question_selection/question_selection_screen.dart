@@ -9,12 +9,12 @@ import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/core/theme/app_text_styles.dart';
 import 'package:waraqty/features/paper_setup/presentation/widgets/paper_setup_back_button.dart';
 import 'package:waraqty/features/question_bank/presentation/cubit/question_selection_cubit.dart';
-import 'package:waraqty/features/question_bank/presentation/widgets/question_card.dart';
-import 'package:waraqty/features/question_bank/presentation/widgets/question_category_card.dart';
-import 'package:waraqty/features/question_bank/presentation/widgets/question_selection_bottom_bar.dart';
-import 'package:waraqty/features/question_bank/presentation/widgets/question_selection_empty_view.dart';
-import 'package:waraqty/features/question_bank/presentation/widgets/question_selection_error_view.dart';
-import 'package:waraqty/features/question_bank/presentation/widgets/question_selection_limit_card.dart';
+import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_card.dart';
+import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_category_card.dart';
+import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_selection_bottom_bar.dart';
+import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_selection_empty_view.dart';
+import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_selection_error_view.dart';
+import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_selection_limit_card.dart';
 
 class QuestionSelectionScreen extends StatefulWidget {
   const QuestionSelectionScreen({super.key});
