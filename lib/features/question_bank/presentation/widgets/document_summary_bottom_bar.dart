@@ -35,7 +35,27 @@ class DocumentSummaryBottomBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // زرار "بيانات الملف" — يكبر ويتغير لونه لما في أسئلة
+          OutlinedButton.icon(
+            onPressed: onAddCategory,
+            icon: Icon(LucideIcons.plus, size: 18.sp),
+            label: Text(DocumentSummaryStrings.addQuestionCategory),
+            style: OutlinedButton.styleFrom(
+              foregroundColor: const Color(AppColors.textPrimary),
+              side: BorderSide(
+                color: const Color(AppColors.border),
+                width: 1.5.w,
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSpacing.lg.w,
+                vertical: AppSpacing.md.h,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(999.r),
+              ),
+              textStyle: AppTextStyles.button,
+            ),
+          ),
+          SizedBox(width: AppSpacing.md.w),
           Expanded(
             child: FilledButton(
               onPressed: onContinue,
@@ -55,28 +75,6 @@ class DocumentSummaryBottomBar extends StatelessWidget {
                 textStyle: AppTextStyles.button,
               ),
               child: Text(DocumentSummaryStrings.fileData),
-            ),
-          ),
-          SizedBox(width: AppSpacing.md.w),
-          // زرار "إضافة نوع سؤال +"
-          OutlinedButton.icon(
-            onPressed: onAddCategory,
-            icon: Icon(LucideIcons.plus, size: 18.sp),
-            label: Text(DocumentSummaryStrings.addQuestionCategory),
-            style: OutlinedButton.styleFrom(
-              foregroundColor: const Color(AppColors.textPrimary),
-              side: BorderSide(
-                color: const Color(AppColors.border),
-                width: 1.5.w,
-              ),
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSpacing.lg.w,
-                vertical: AppSpacing.md.h,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(999.r),
-              ),
-              textStyle: AppTextStyles.button,
             ),
           ),
         ],

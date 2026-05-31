@@ -42,13 +42,15 @@ class QuestionSelectionBottomBar extends StatelessWidget {
           SizedBox(
             height: 56.h,
             child: FilledButton.icon(
+              iconAlignment: IconAlignment.end,
               onPressed: canContinue ? onContinue : null,
               icon: Icon(LucideIcons.arrowLeft, size: 18.sp),
               label: const Text(QuestionSelectionStrings.continueButton),
               style: FilledButton.styleFrom(
                 backgroundColor: const Color(
                   AppColors.primary,
-                ).withValues(alpha: 0.42),
+                ),
+                    // .withValues(alpha: 0.42),
                 disabledBackgroundColor: const Color(AppColors.border),
                 foregroundColor: const Color(AppColors.white),
                 disabledForegroundColor: const Color(AppColors.textMuted),
