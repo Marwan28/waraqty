@@ -95,10 +95,6 @@ class DocumentSummaryStrings {
   static const String summaryStep = 'الخطوة 4 من 5';
   static const String summaryTitle = 'ملخص الورقة';
   static const String summarySubtitle = 'راجع تصنيفاتك قبل المتابعة';
-
-  // static const String grade = 'الصف الدراسي';
-  // static const String subject = 'المادة';
-  // static const String paperType = 'نوع الورقة';
   static const String totalQuestions = 'إجمالي الأسئلة';
   static const String question = 'سؤال';
   static const String dividedBy = 'موزعة على';
@@ -116,6 +112,22 @@ class DocumentSummaryStrings {
   static const String noQuestionsTitle = 'مفيش أسئلة مختارة';
   static const String noQuestionsSubtitle =
       'ارجع لاختيار الأسئلة قبل تجهيز الورقة.';
-  // static const String continueButton = 'متابعة';
-  // static const String download = 'تحميل PDF';
+}
+
+class BookletDetailsStrings {
+  static const String detailsTitle = 'بيانات الملزمة';
+  static const String detailsSubtitle = 'كل البيانات اختيارية وتقدر تتخطيها';
+  static const String optional = 'اختياري';
+  static const String bookletTitle = 'عنوان الملزمة';
+  static const String bookletTitleHint = 'مثال: مراجعة الوحدة الأولى';
+  static const String teacherName = 'اسم المدرس';
+  static const String teacherNameHint = 'مثال: أ. مروان';
+  static const String teacherPhoneNumber = 'رقم الهاتف';
+  static const String teacherPhoneNumberHint = 'مثال: 01xxxxxxxx';
+  static const String subjectName = 'اسم المادة';
+  static const bookletTemplate = 'قالب الملزمة';
+  static const List<String> bookletTemplates = ['بسيط', 'منظم', 'مراجعة'];
+  static const fontSize = 'حجم الخط';
+  static const pixel = 'بكسل';
+  static const String previewButton = 'معاينة PDF';
 }

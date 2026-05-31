@@ -29,7 +29,7 @@ class DocumentSummaryScreen extends StatelessWidget {
             final loadedState = _getLoadedState(questionState);
             final hasSelectedQuestions =
                 loadedState != null &&
-                    loadedState.allSelectedQuestions.isNotEmpty;
+                loadedState.allSelectedQuestions.isNotEmpty;
 
             return Column(
               children: [
@@ -47,13 +47,19 @@ class DocumentSummaryScreen extends StatelessWidget {
                 if (!hasSelectedQuestions)
                   const Expanded(child: DocumentSummaryEmptyView())
                 else
-                  Expanded(
-                    child: _buildContent(context, loadedState),
-                  ),
+                  Expanded(child: _buildContent(context, loadedState)),
                 DocumentSummaryBottomBar(
                   hasSelectedQuestions: hasSelectedQuestions,
                   onContinue: hasSelectedQuestions
-                      ? () => context.push(AppRoutes.pdfPreview)
+                      ? () => context.push(
+                          context
+                                      .read<QuestionSelectionCubit>()
+                                      .selectedPaperType
+                                      .id ==
+                                  'booklet'
+                              ? AppRoutes.bookletDetails
+                              : AppRoutes.examDetails,
+                        )
                       : null,
                   onAddCategory: () => context.pop(),
                 ),
@@ -72,10 +78,7 @@ class DocumentSummaryScreen extends StatelessWidget {
     return null;
   }
 
-  Widget _buildContent(
-      BuildContext context,
-      QuestionSelectionLoaded state,
-      ) {
+  Widget _buildContent(BuildContext context, QuestionSelectionLoaded state) {
     final cubit = context.read<QuestionSelectionCubit>();
     final selectedCategories = state.selectedCategories;
 
@@ -144,12 +147,7 @@ class DocumentSummaryScreen extends StatelessWidget {
           },
           children: [
             for (int index = 0; index < selectedCategories.length; index++)
-              _buildCategoryTile(
-                context,
-                state,
-                selectedCategories,
-                index,
-              ),
+              _buildCategoryTile(context, state, selectedCategories, index),
           ],
         ),
         SizedBox(height: AppSpacing.xl.h),
@@ -158,11 +156,11 @@ class DocumentSummaryScreen extends StatelessWidget {
   }
 
   Widget _buildCategoryTile(
-      BuildContext context,
-      QuestionSelectionLoaded state,
-      List<QuestionCategoryEntity> selectedCategories,
-      int index,
-      ) {
+    BuildContext context,
+    QuestionSelectionLoaded state,
+    List<QuestionCategoryEntity> selectedCategories,
+    int index,
+  ) {
     final category = selectedCategories[index];
 
     return Padding(
