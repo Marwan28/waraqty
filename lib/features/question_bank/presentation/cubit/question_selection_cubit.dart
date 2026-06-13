@@ -21,7 +21,7 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }) : super(const QuestionSelectionInitial());
   final GradeEntity selectedGrade;
   final SubjectEntity selectedSubject;
-  final PaperTypeEntity selectedPaperType;
+  PaperTypeEntity selectedPaperType;
   final GetQuestionCategoriesUseCase getQuestionCategoriesUseCase;
   final GetQuestionsByFilterUseCase getQuestionsByFilterUseCase;
 
@@ -178,10 +178,18 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
     emit(currentState.copyWith(selectedQuestionsByCategory: const {}));
   }
 
-  void reorderSelectedCategory({
-    required int oldIndex,
-    required int newIndex,
-  }) {
+  void changePaperType(PaperTypeEntity paperType) {
+    if (selectedPaperType.id == paperType.id) return;
+
+    selectedPaperType = paperType;
+
+    final currentState = state;
+    if (currentState is QuestionSelectionLoaded) {
+      emit(currentState.copyWith());
+    }
+  }
+
+  void reorderSelectedCategory({required int oldIndex, required int newIndex}) {
     final currentState = state;
     if (currentState is! QuestionSelectionLoaded) return;
 

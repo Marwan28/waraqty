@@ -8,6 +8,7 @@ class AppRoutes {
   static const String documentSummary = '/documentSummary';
   static const String bookletDetails = '/bookletDetails';
   static const String examDetails = '/examDetails';
+  static const String documentDetails = '/documentDetails';
   static const String pdfPreview = '/pdfPreview';
   static const String savedSuccess = '/savedSuccess';
 }

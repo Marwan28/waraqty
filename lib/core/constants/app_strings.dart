@@ -131,3 +131,46 @@ class BookletDetailsStrings {
   static const pixel = 'بكسل';
   static const String previewButton = 'معاينة PDF';
 }
+
+class DocumentDetailsStrings {
+  static const String step5Of5 = 'الخطوة 5 من 5';
+  static const String paperInfo = 'معلومات الورقة';
+  static const String paperType = 'نوع الورقة';
+  static const String paperTypeSubtitle =
+      'تقدر تغيّره من هنا من غير ما تفقد الأسئلة المختارة.';
+  static const String documentData = 'بيانات الورقة';
+  static const String teacherData = 'بيانات المدرس';
+  static const String layoutSettings = 'إعدادات الشكل';
+  static const String selectedQuestions = 'أسئلة مختارة';
+  static const String question = 'سؤال';
+  static const String previewPdf = 'معاينة PDF';
+  static const String subjectName = 'اسم المادة';
+  static const String subjectNameHint = 'مثال: الدراسات الاجتماعية';
+  static const String fontSize = 'حجم الخط';
+  static const String pixel = 'بكسل';
+  static const String includeAnswersTitle = 'إظهار الإجابات في الملزمة';
+  static const String includeAnswersSubtitle =
+      'مناسب لو هتطلع نسخة مراجعة أو نسخة للمدرس.';
+  static const String answerSpacesTitle = 'مساحات إجابة داخل الامتحان';
+  static const String answerSpacesSubtitle =
+      'لو قفلتها، هتطلع ورقة أسئلة فقط ومعاها نموذج إجابة منفصل.';
+}
+
+class ExamDetailsStrings {
+  static const String detailsTitle = 'بيانات الامتحان';
+  static const String detailsSubtitle = 'جهز رأس الامتحان وطريقة الإجابة';
+  static const String schoolName = 'اسم المدرسة';
+  static const String schoolNameHint = 'مثال: مدرسة النور الابتدائية';
+  static const String governorate = 'المحافظة';
+  static const String governorateHint = 'مثال: القاهرة';
+  static const String educationalAdministration = 'الإدارة التعليمية';
+  static const String educationalAdministrationHint = 'مثال: إدارة شرق';
+  static const String examTitle = 'عنوان الامتحان';
+  static const String examTitleHint = 'مثال: اختبار شهر نوفمبر';
+  static const String examDuration = 'زمن الامتحان';
+  static const String examDurationHint = 'مثال: ساعة ونصف';
+  static const String totalGrade = 'الدرجة الكلية';
+  static const String totalGradeHint = 'مثال: 30';
+  static const String teacherName = 'اسم المدرس';
+  static const String teacherNameHint = 'مثال: أ. مروان';
+}

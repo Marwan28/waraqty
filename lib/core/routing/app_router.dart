@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:waraqty/core/constants/app_routes.dart';
+import 'package:waraqty/features/document_builder/presentation/cubit/document_details_cubit.dart';
+import 'package:waraqty/features/document_builder/presentation/screens/document_details_screen.dart';
 import 'package:waraqty/features/onboarding/data/datasources/onboarding_local_data_source.dart';
 import 'package:waraqty/features/onboarding/data/repositories/onboarding_repository_impl.dart';
 import 'package:waraqty/features/onboarding/domain/usecases/complete_onboarding_usecase.dart';
@@ -104,30 +106,35 @@ class AppRouter {
                 path: AppRoutes.documentSummary,
                 builder: (context, state) => const DocumentSummaryScreen(),
               ),
-
-              GoRoute(
-                path: AppRoutes.bookletDetails,
-                builder: (context, state) => const Scaffold(
-                  body: Center(child: Text('Booklet Details Screen')),
-                ),
-              ),
-              GoRoute(
-                path: AppRoutes.examDetails,
-                builder: (context, state) => const Scaffold(
-                  body: Center(child: Text('Exam Details Screen')),
-                ),
-              ),
-              GoRoute(
-                path: AppRoutes.pdfPreview,
-                builder: (context, state) => const Scaffold(
-                  body: Center(child: Text('Pdf Preview Screen')),
-                ),
-              ),
-              GoRoute(
-                path: AppRoutes.savedSuccess,
-                builder: (context, state) => const Scaffold(
-                  body: Center(child: Text('Saved Success Screen')),
-                ),
+              ShellRoute(
+                builder: (context, state, child) {
+                  return BlocProvider(
+                    create: (context) => DocumentDetailsCubit(),
+                    child: child,
+                  );
+                },
+                routes: [
+                  GoRoute(
+                    path: AppRoutes.bookletDetails,
+                    builder: (context, state) => const DocumentDetailsScreen(),
+                  ),
+                  GoRoute(
+                    path: AppRoutes.examDetails,
+                    builder: (context, state) => const DocumentDetailsScreen(),
+                  ),
+                  GoRoute(
+                    path: AppRoutes.pdfPreview,
+                    builder: (context, state) => const Scaffold(
+                      body: Center(child: Text('Pdf Preview Screen')),
+                    ),
+                  ),
+                  GoRoute(
+                    path: AppRoutes.savedSuccess,
+                    builder: (context, state) => const Scaffold(
+                      body: Center(child: Text('Saved Success Screen')),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
