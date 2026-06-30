@@ -3,8 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:waraqty/core/constants/app_routes.dart';
+import 'package:waraqty/core/constants/app_strings.dart';
+import 'package:waraqty/features/document_builder/data/services/egyptian_pdf_generator.dart';
+import 'package:waraqty/features/document_builder/data/services/pdf_storage_service.dart';
+import 'package:waraqty/features/document_builder/presentation/cubit/document_builder_cubit.dart';
 import 'package:waraqty/features/document_builder/presentation/cubit/document_details_cubit.dart';
+import 'package:waraqty/features/document_builder/presentation/mappers/document_data_mapper.dart';
 import 'package:waraqty/features/document_builder/presentation/screens/document_details_screen.dart';
+import 'package:waraqty/features/document_builder/presentation/screens/pdf_preview_screen.dart';
+import 'package:waraqty/features/document_builder/presentation/screens/saved_success_screen.dart';
 import 'package:waraqty/features/onboarding/data/datasources/onboarding_local_data_source.dart';
 import 'package:waraqty/features/onboarding/data/repositories/onboarding_repository_impl.dart';
 import 'package:waraqty/features/onboarding/domain/usecases/complete_onboarding_usecase.dart';
@@ -122,17 +129,43 @@ class AppRouter {
                     path: AppRoutes.examDetails,
                     builder: (context, state) => const DocumentDetailsScreen(),
                   ),
-                  GoRoute(
-                    path: AppRoutes.pdfPreview,
-                    builder: (context, state) => const Scaffold(
-                      body: Center(child: Text('Pdf Preview Screen')),
-                    ),
-                  ),
-                  GoRoute(
-                    path: AppRoutes.savedSuccess,
-                    builder: (context, state) => const Scaffold(
-                      body: Center(child: Text('Saved Success Screen')),
-                    ),
+                  ShellRoute(
+                    builder: (context, state, child) {
+                      final documentData = DocumentDataMapper.fromCubits(
+                        questionSelectionCubit: context
+                            .read<QuestionSelectionCubit>(),
+                        documentDetailsCubit: context
+                            .read<DocumentDetailsCubit>(),
+                      );
+                      if (documentData == null) {
+                        return const Scaffold(
+                          body: Center(
+                            child: Text(
+                              DocumentSummaryStrings.noQuestionsTitle,
+                            ),
+                          ),
+                        );
+                      }
+
+                      return BlocProvider(
+                        create: (context) => DocumentBuilderCubit(
+                          documentData: documentData,
+                          pdfGenerator: EgyptianPdfGenerator(),
+                          storageService: PdfStorageService(),
+                        )..generate(),
+                        child: child,
+                      );
+                    },
+                    routes: [
+                      GoRoute(
+                        path: AppRoutes.pdfPreview,
+                        builder: (context, state) => const PdfPreviewScreen(),
+                      ),
+                      GoRoute(
+                        path: AppRoutes.savedSuccess,
+                        builder: (context, state) => const SavedSuccessScreen(),
+                      ),
+                    ],
                   ),
                 ],
               ),

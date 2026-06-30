@@ -167,10 +167,68 @@ class ExamDetailsStrings {
   static const String educationalAdministrationHint = 'مثال: إدارة شرق';
   static const String examTitle = 'عنوان الامتحان';
   static const String examTitleHint = 'مثال: اختبار شهر نوفمبر';
+  static const String academicYear = 'العام الدراسي';
+  static const String academicYearHint = 'مثال: 2025 / 2026';
+  static const String termName = 'الفصل الدراسي';
+  static const String termNameHint = 'مثال: الفصل الدراسي الأول';
   static const String examDuration = 'زمن الامتحان';
   static const String examDurationHint = 'مثال: ساعة ونصف';
   static const String totalGrade = 'الدرجة الكلية';
   static const String totalGradeHint = 'مثال: 30';
   static const String teacherName = 'اسم المدرس';
   static const String teacherNameHint = 'مثال: أ. مروان';
+}
+
+class PdfPreviewStrings {
+  static const String step = 'المعاينة النهائية';
+  static const String title = 'معاينة PDF';
+  static const String subtitle = 'راجع شكل الورقة قبل الحفظ والمشاركة';
+  static const String generating = 'بنجهز الورقة...';
+  static const String generationError = 'مقدرناش نجهز ملف PDF';
+  static const String retry = 'إعادة المحاولة';
+  static const String save = 'حفظ في Downloads';
+  static const String saving = 'جاري الحفظ...';
+  static const String exam = 'الامتحان';
+  static const String answerKey = 'نموذج الإجابة';
+  static const String booklet = 'الملزمة';
+  static const String savedSuccessfully = 'تم حفظ الملفات بنجاح';
+  static const String savedLocation = 'مكان الحفظ';
+  static const String share = 'مشاركة';
+  static const String details = 'عرض التفاصيل';
+  static const String done = 'تم';
+  static const String createNew = 'إنشاء ورقة جديدة';
+  static const String backToPreview = 'العودة للمعاينة';
+  static const String saveError = 'حصلت مشكلة أثناء حفظ الملفات';
+}
+
+class PdfDocumentStrings {
+  static const String appName = 'ورقتي';
+  static const String arabRepublicOfEgypt = 'جمهورية مصر العربية';
+  static const String ministry = 'وزارة التربية والتعليم والتعليم الفني';
+  static const String governorate = 'محافظة';
+  static const String administration = 'إدارة';
+  static const String school = 'مدرسة';
+  static const String subject = 'المادة';
+  static const String grade = 'الصف';
+  static const String duration = 'الزمن';
+  static const String totalGrade = 'الدرجة الكلية';
+  static const String academicYear = 'العام الدراسي';
+  static const String term = 'الفصل الدراسي';
+  static const String studentName = 'اسم الطالب';
+  static const String classroom = 'الفصل';
+  static const String seatNumber = 'رقم الجلوس';
+  static const String teacher = 'إعداد';
+  static const String phone = 'للتواصل';
+  static const String question = 'السؤال';
+  static const String answer = 'الإجابة';
+  static const String answerKey = 'نموذج الإجابة';
+  static const String exam = 'امتحان';
+  static const String booklet = 'ملزمة';
+  static const String page = 'صفحة';
+  static const String of = 'من';
+  static const String ending =
+      'انتهت الأسئلة مع أطيب التمنيات بالتوفيق والنجاح';
+  static const String bookletDefaultTitle = 'مراجعة شاملة';
+  static const String examDefaultTitle = 'امتحان الدراسات الاجتماعية';
+  static const String unknown = '....................';
 }

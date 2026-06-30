@@ -50,6 +50,14 @@ class DocumentDetailsCubit extends Cubit<DocumentDetailsState> {
     emit(state.copyWith(examTitle: value.trim()));
   }
 
+  void updateAcademicYear(String value) {
+    emit(state.copyWith(academicYear: value.trim()));
+  }
+
+  void updateTermName(String value) {
+    emit(state.copyWith(termName: value.trim()));
+  }
+
   void updateExamDuration(String value) {
     emit(state.copyWith(examDuration: value.trim()));
   }

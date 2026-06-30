@@ -13,6 +13,8 @@ class DocumentDetailsState extends Equatable {
   final String governorate;
   final String educationalAdministration;
   final String examTitle;
+  final String academicYear;
+  final String termName;
   final String examDuration;
   final String totalGrade;
   final bool includeAnswerSpaces;
@@ -29,6 +31,8 @@ class DocumentDetailsState extends Equatable {
     this.governorate = '',
     this.educationalAdministration = '',
     this.examTitle = '',
+    this.academicYear = '',
+    this.termName = '',
     this.examDuration = '',
     this.totalGrade = '',
     this.includeAnswerSpaces = true,
@@ -46,6 +50,8 @@ class DocumentDetailsState extends Equatable {
         governorate.isNotEmpty ||
         educationalAdministration.isNotEmpty ||
         examTitle.isNotEmpty ||
+        academicYear.isNotEmpty ||
+        termName.isNotEmpty ||
         subjectName.isNotEmpty ||
         examDuration.isNotEmpty ||
         totalGrade.isNotEmpty;
@@ -63,6 +69,8 @@ class DocumentDetailsState extends Equatable {
     String? governorate,
     String? educationalAdministration,
     String? examTitle,
+    String? academicYear,
+    String? termName,
     String? examDuration,
     String? totalGrade,
     bool? includeAnswerSpaces,
@@ -81,6 +89,8 @@ class DocumentDetailsState extends Equatable {
       educationalAdministration:
           educationalAdministration ?? this.educationalAdministration,
       examTitle: examTitle ?? this.examTitle,
+      academicYear: academicYear ?? this.academicYear,
+      termName: termName ?? this.termName,
       examDuration: examDuration ?? this.examDuration,
       totalGrade: totalGrade ?? this.totalGrade,
       includeAnswerSpaces: includeAnswerSpaces ?? this.includeAnswerSpaces,
@@ -100,6 +110,8 @@ class DocumentDetailsState extends Equatable {
     governorate,
     educationalAdministration,
     examTitle,
+    academicYear,
+    termName,
     examDuration,
     totalGrade,
     includeAnswerSpaces,

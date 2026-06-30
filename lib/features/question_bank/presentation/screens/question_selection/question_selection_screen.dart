@@ -206,7 +206,7 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
           height: 74.h,
           padding: EdgeInsets.symmetric(vertical: AppSpacing.md.h),
           decoration: BoxDecoration(
-            color: const Color(AppColors.warningSoft).withValues(alpha: 0.42),
+            color: const Color(AppColors.surface),
             border: Border(
               bottom: BorderSide(
                 color: const Color(AppColors.borderSoft),

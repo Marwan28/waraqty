@@ -224,6 +224,22 @@ class DocumentDetailsScreen extends StatelessWidget {
         ),
         SizedBox(height: AppSpacing.md.h),
         DocumentDetailsTextField(
+          label: ExamDetailsStrings.academicYear,
+          hint: ExamDetailsStrings.academicYearHint,
+          initialValue: state.academicYear,
+          onChanged: cubit.updateAcademicYear,
+          icon: LucideIcons.fileText,
+        ),
+        SizedBox(height: AppSpacing.md.h),
+        DocumentDetailsTextField(
+          label: ExamDetailsStrings.termName,
+          hint: ExamDetailsStrings.termNameHint,
+          initialValue: state.termName,
+          onChanged: cubit.updateTermName,
+          icon: LucideIcons.fileText,
+        ),
+        SizedBox(height: AppSpacing.md.h),
+        DocumentDetailsTextField(
           label: DocumentDetailsStrings.subjectName,
           hint: DocumentDetailsStrings.subjectNameHint,
           initialValue: state.subjectName.isEmpty
