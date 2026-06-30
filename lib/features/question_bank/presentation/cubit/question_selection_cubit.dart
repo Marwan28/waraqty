@@ -64,8 +64,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   Future<void> selectCategory(QuestionCategoryEntity category) async {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     if (currentState.questionsByCategory.containsKey(category.type)) {
       emit(currentState.copyWith(selectedCategory: category));
@@ -98,8 +98,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   void toggleQuestion(QuestionEntity question) {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final selectedQuestions = [
       ...(currentState.selectedQuestionsByCategory[question.category] ??
@@ -121,8 +121,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   void selectAllCurrentCategory() {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final categoryType = currentState.selectedCategory.type;
     final selectedQuestions = [
@@ -145,8 +145,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   void clearCurrentCategory() {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     _clearCategoryByType(currentState.selectedCategory.type);
   }
@@ -156,8 +156,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   void _clearCategoryByType(QuestionCategoryType categoryType) {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final updatedSelectedQuestions =
         Map<QuestionCategoryType, List<QuestionEntity>>.from(
@@ -172,8 +172,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   void clearAllSelectedQuestions() {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     emit(currentState.copyWith(selectedQuestionsByCategory: const {}));
   }
@@ -183,15 +183,15 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
 
     selectedPaperType = paperType;
 
-    final currentState = state;
-    if (currentState is QuestionSelectionLoaded) {
+    final currentState = _loadedStateForAction();
+    if (currentState != null) {
       emit(currentState.copyWith());
     }
   }
 
   void reorderSelectedCategory({required int oldIndex, required int newIndex}) {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final selectedCategories = currentState.selectedCategories;
     if (oldIndex < 0 || oldIndex >= selectedCategories.length) return;
@@ -232,8 +232,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
     required QuestionCategoryEntity category,
     required int limit,
   }) {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final safeLimit = limit < 1 ? 1 : limit;
     final updatedLimits = Map<QuestionCategoryType, int?>.from(
@@ -267,8 +267,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
   }
 
   void setCurrentCategoryUnlimited() {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final updatedLimits = Map<QuestionCategoryType, int?>.from(
       currentState.categoryLimits,
@@ -302,8 +302,8 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
     QuestionCategoryType categoryType,
     List<QuestionEntity> selectedQuestions,
   ) {
-    final currentState = state;
-    if (currentState is! QuestionSelectionLoaded) return;
+    final currentState = _loadedStateForAction();
+    if (currentState == null) return;
 
     final updatedSelectedQuestions =
         Map<QuestionCategoryType, List<QuestionEntity>>.from(
@@ -323,5 +323,14 @@ class QuestionSelectionCubit extends Cubit<QuestionSelectionState> {
         selectedQuestionsByCategory: Map.unmodifiable(updatedSelectedQuestions),
       ),
     );
+  }
+
+  QuestionSelectionLoaded? _loadedStateForAction() {
+    final currentState = state;
+    if (currentState is QuestionSelectionLoaded) return currentState;
+    if (currentState is QuestionSelectionError) {
+      return currentState.previousState;
+    }
+    return null;
   }
 }

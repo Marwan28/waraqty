@@ -8,6 +8,7 @@ import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/theme/app_colors.dart';
 import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/core/theme/app_text_styles.dart';
+import 'package:waraqty/features/document_builder/domain/entities/document_template.dart';
 import 'package:waraqty/features/document_builder/presentation/cubit/document_details_cubit.dart';
 import 'package:waraqty/features/document_builder/presentation/widgets/document_details_bottom_bar.dart';
 import 'package:waraqty/features/document_builder/presentation/widgets/document_details_font_size_control.dart';
@@ -163,7 +164,7 @@ class DocumentDetailsScreen extends StatelessWidget {
         ),
         SizedBox(height: AppSpacing.xl.h),
         _buildSectionTitle(DocumentDetailsStrings.layoutSettings),
-        _buildTemplatePicker(cubit, state),
+        _buildBookletTemplatePicker(cubit, state),
         SizedBox(height: AppSpacing.md.h),
         DocumentDetailsFontSizeControl(
           fontSize: state.fontSize,
@@ -276,6 +277,8 @@ class DocumentDetailsScreen extends StatelessWidget {
           icon: LucideIcons.slidersHorizontal,
         ),
         SizedBox(height: AppSpacing.md.h),
+        _buildExamTemplatePicker(cubit, state),
+        SizedBox(height: AppSpacing.md.h),
         DocumentDetailsFontSizeControl(
           fontSize: state.fontSize,
           onChanged: cubit.updateFontSize,
@@ -293,10 +296,44 @@ class DocumentDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTemplatePicker(
+  Widget _buildBookletTemplatePicker(
     DocumentDetailsCubit cubit,
     DocumentDetailsState state,
   ) {
+    return _buildTemplatePicker(
+      title: BookletDetailsStrings.bookletTemplate,
+      options: [
+        for (final template in BookletTemplate.values)
+          DocumentDetailsOptionChip(
+            label: template.title,
+            isSelected: state.bookletTemplate == template,
+            onTap: () => cubit.updateBookletTemplate(template),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildExamTemplatePicker(
+    DocumentDetailsCubit cubit,
+    DocumentDetailsState state,
+  ) {
+    return _buildTemplatePicker(
+      title: ExamDetailsStrings.examTemplate,
+      options: [
+        for (final template in ExamTemplate.values)
+          DocumentDetailsOptionChip(
+            label: template.title,
+            isSelected: state.examTemplate == template,
+            onTap: () => cubit.updateExamTemplate(template),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildTemplatePicker({
+    required String title,
+    required List<Widget> options,
+  }) {
     return Container(
       padding: EdgeInsets.all(AppSpacing.lg.w),
       decoration: BoxDecoration(
@@ -308,7 +345,7 @@ class DocumentDetailsScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            BookletDetailsStrings.bookletTemplate,
+            title,
             style: AppTextStyles.bodyLarge.copyWith(
               fontWeight: FontWeight.w800,
             ),
@@ -317,14 +354,7 @@ class DocumentDetailsScreen extends StatelessWidget {
           Wrap(
             spacing: AppSpacing.sm.w,
             runSpacing: AppSpacing.sm.h,
-            children: [
-              for (final template in BookletDetailsStrings.bookletTemplates)
-                DocumentDetailsOptionChip(
-                  label: template,
-                  isSelected: state.bookletTemplate == template,
-                  onTap: () => cubit.updateBookletTemplate(template),
-                ),
-            ],
+            children: options,
           ),
         ],
       ),

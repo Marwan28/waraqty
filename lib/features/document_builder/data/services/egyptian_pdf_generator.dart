@@ -5,6 +5,7 @@ import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/enums/question_category_type.dart';
 import 'package:waraqty/features/document_builder/domain/entities/document_data_entity.dart';
 import 'package:waraqty/features/document_builder/domain/entities/document_section_entity.dart';
+import 'package:waraqty/features/document_builder/domain/entities/document_template.dart';
 import 'package:waraqty/features/document_builder/domain/entities/generated_pdf_file_entity.dart';
 import 'package:waraqty/features/question_bank/domain/entities/question_entity.dart';
 
@@ -88,13 +89,13 @@ class EgyptianPdfGenerator {
 
     document.addPage(
       pw.Page(
-        pageTheme: _pageTheme(theme),
+        pageTheme: _pageThemeFor(data, theme),
         build: (context) => _bookletCover(data, title),
       ),
     );
     document.addPage(
       pw.MultiPage(
-        pageTheme: _pageTheme(theme),
+        pageTheme: _pageThemeFor(data, theme),
         maxPages: 200,
         header: (context) => _bookletHeader(data, title),
         footer: _pageFooter,
@@ -123,7 +124,7 @@ class EgyptianPdfGenerator {
 
     document.addPage(
       pw.MultiPage(
-        pageTheme: _pageTheme(theme),
+        pageTheme: _pageThemeFor(data, theme),
         maxPages: 200,
         header: (context) => _examHeader(data, title, isAnswerKey: false),
         footer: _pageFooter,
@@ -164,7 +165,7 @@ class EgyptianPdfGenerator {
 
     document.addPage(
       pw.MultiPage(
-        pageTheme: _pageTheme(theme),
+        pageTheme: _pageThemeFor(data, theme),
         maxPages: 100,
         header: (context) => _examHeader(data, title, isAnswerKey: true),
         footer: _pageFooter,
@@ -189,16 +190,28 @@ class EgyptianPdfGenerator {
     );
   }
 
-  pw.PageTheme _pageTheme(pw.ThemeData theme) {
+  pw.PageTheme _pageThemeFor(DocumentDataEntity data, pw.ThemeData theme) {
+    final margin = !data.isBooklet && data.examTemplate == ExamTemplate.compact
+        ? const pw.EdgeInsets.fromLTRB(24, 20, 24, 24)
+        : const pw.EdgeInsets.fromLTRB(30, 28, 30, 30);
+
     return pw.PageTheme(
       pageFormat: PdfPageFormat.a4,
-      margin: const pw.EdgeInsets.fromLTRB(30, 28, 30, 30),
+      margin: margin,
       textDirection: pw.TextDirection.rtl,
       theme: theme,
     );
   }
 
   pw.Widget _bookletCover(DocumentDataEntity data, String title) {
+    return switch (data.bookletTemplate) {
+      BookletTemplate.classic => _classicBookletCover(data, title),
+      BookletTemplate.organized => _organizedBookletCover(data, title),
+      BookletTemplate.revision => _revisionBookletCover(data, title),
+    };
+  }
+
+  pw.Widget _classicBookletCover(DocumentDataEntity data, String title) {
     return pw.Container(
       decoration: pw.BoxDecoration(
         border: pw.Border.all(color: _primary, width: 2),
@@ -321,7 +334,201 @@ class EgyptianPdfGenerator {
     );
   }
 
+  pw.Widget _organizedBookletCover(DocumentDataEntity data, String title) {
+    return pw.Container(
+      decoration: pw.BoxDecoration(
+        border: pw.Border.all(color: _ink, width: 1.2),
+      ),
+      child: pw.Column(
+        children: [
+          pw.Container(
+            width: double.infinity,
+            padding: const pw.EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 14,
+            ),
+            color: _primary,
+            child: pw.Row(
+              mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+              children: [
+                pw.Text(
+                  AppStrings.appName,
+                  style: pw.TextStyle(
+                    color: PdfColors.white,
+                    fontSize: 13,
+                    fontWeight: pw.FontWeight.bold,
+                  ),
+                ),
+                pw.Text(
+                  PdfDocumentStrings.booklet,
+                  style: const pw.TextStyle(
+                    color: PdfColors.white,
+                    fontSize: 13,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          pw.Expanded(
+            child: pw.Padding(
+              padding: const pw.EdgeInsets.all(30),
+              child: pw.Column(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Container(
+                    padding: const pw.EdgeInsets.symmetric(
+                      horizontal: 22,
+                      vertical: 12,
+                    ),
+                    decoration: pw.BoxDecoration(
+                      color: _primarySoft,
+                      border: pw.Border.all(color: _primary, width: 1),
+                    ),
+                    child: pw.Text(
+                      data.subjectTitle,
+                      style: pw.TextStyle(
+                        color: _primary,
+                        fontSize: 18,
+                        fontWeight: pw.FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  pw.SizedBox(height: 24),
+                  pw.Text(
+                    title,
+                    textAlign: pw.TextAlign.center,
+                    style: pw.TextStyle(
+                      fontSize: 30,
+                      fontWeight: pw.FontWeight.bold,
+                    ),
+                  ),
+                  pw.SizedBox(height: 12),
+                  pw.Container(width: 120, height: 2, color: _primary),
+                  pw.SizedBox(height: 12),
+                  pw.Text(
+                    data.gradeTitle,
+                    style: const pw.TextStyle(fontSize: 17, color: _muted),
+                  ),
+                  pw.SizedBox(height: 36),
+                  pw.Table(
+                    border: pw.TableBorder.all(color: _line, width: 0.7),
+                    columnWidths: const {
+                      0: pw.FlexColumnWidth(),
+                      1: pw.FlexColumnWidth(),
+                    },
+                    children: [
+                      pw.TableRow(
+                        children: [
+                          _coverTableCell(
+                            PdfDocumentStrings.studentName,
+                            PdfDocumentStrings.unknown,
+                          ),
+                          _coverTableCell(
+                            PdfDocumentStrings.classroom,
+                            PdfDocumentStrings.unknown,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          _bookletTeacherFooter(data, filled: true),
+        ],
+      ),
+    );
+  }
+
+  pw.Widget _revisionBookletCover(DocumentDataEntity data, String title) {
+    return pw.Container(
+      padding: const pw.EdgeInsets.all(16),
+      decoration: pw.BoxDecoration(
+        border: pw.Border.all(color: _primary, width: 3),
+      ),
+      child: pw.Container(
+        padding: const pw.EdgeInsets.all(24),
+        decoration: pw.BoxDecoration(
+          border: pw.Border.all(color: _line, width: 0.8),
+        ),
+        child: pw.Column(
+          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+          children: [
+            pw.Column(
+              children: [
+                pw.Container(
+                  width: double.infinity,
+                  padding: const pw.EdgeInsets.symmetric(vertical: 12),
+                  color: _primary,
+                  child: pw.Text(
+                    PdfDocumentStrings.booklet,
+                    textAlign: pw.TextAlign.center,
+                    style: pw.TextStyle(
+                      color: PdfColors.white,
+                      fontSize: 17,
+                      fontWeight: pw.FontWeight.bold,
+                    ),
+                  ),
+                ),
+                pw.SizedBox(height: 10),
+                pw.Text(
+                  '${data.subjectTitle} - ${data.gradeTitle}',
+                  style: const pw.TextStyle(fontSize: 13, color: _muted),
+                ),
+              ],
+            ),
+            pw.Column(
+              children: [
+                pw.Text(
+                  title,
+                  textAlign: pw.TextAlign.center,
+                  style: pw.TextStyle(
+                    color: _primary,
+                    fontSize: 34,
+                    fontWeight: pw.FontWeight.bold,
+                  ),
+                ),
+                pw.SizedBox(height: 18),
+                pw.Container(
+                  width: double.infinity,
+                  padding: const pw.EdgeInsets.all(18),
+                  decoration: pw.BoxDecoration(
+                    color: _paperSoft,
+                    border: pw.Border.all(color: _ink, width: 1),
+                  ),
+                  child: pw.Column(
+                    children: [
+                      _coverValue(
+                        PdfDocumentStrings.studentName,
+                        PdfDocumentStrings.unknown,
+                      ),
+                      pw.SizedBox(height: 12),
+                      _coverValue(
+                        PdfDocumentStrings.classroom,
+                        PdfDocumentStrings.unknown,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            _bookletTeacherFooter(data),
+          ],
+        ),
+      ),
+    );
+  }
+
   pw.Widget _bookletHeader(DocumentDataEntity data, String title) {
+    return switch (data.bookletTemplate) {
+      BookletTemplate.classic => _classicBookletHeader(data, title),
+      BookletTemplate.organized => _organizedBookletHeader(data, title),
+      BookletTemplate.revision => _revisionBookletHeader(data, title),
+    };
+  }
+
+  pw.Widget _classicBookletHeader(DocumentDataEntity data, String title) {
     return pw.Container(
       margin: const pw.EdgeInsets.only(bottom: 14),
       padding: const pw.EdgeInsets.only(bottom: 8),
@@ -351,7 +558,116 @@ class EgyptianPdfGenerator {
     );
   }
 
+  pw.Widget _organizedBookletHeader(DocumentDataEntity data, String title) {
+    return pw.Container(
+      margin: const pw.EdgeInsets.only(bottom: 14),
+      padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: pw.BoxDecoration(
+        color: _primarySoft,
+        border: pw.Border.all(color: _primary, width: 0.8),
+      ),
+      child: pw.Row(
+        children: [
+          pw.Container(
+            width: 28,
+            height: 28,
+            alignment: pw.Alignment.center,
+            color: _primary,
+            child: pw.Text(
+              'و',
+              style: pw.TextStyle(
+                color: PdfColors.white,
+                fontWeight: pw.FontWeight.bold,
+              ),
+            ),
+          ),
+          pw.SizedBox(width: 10),
+          pw.Expanded(
+            child: pw.Text(
+              title,
+              style: pw.TextStyle(
+                color: _primary,
+                fontSize: 12,
+                fontWeight: pw.FontWeight.bold,
+              ),
+            ),
+          ),
+          pw.Text(
+            '${data.subjectTitle} | ${data.gradeTitle}',
+            style: const pw.TextStyle(fontSize: 9, color: _muted),
+          ),
+        ],
+      ),
+    );
+  }
+
+  pw.Widget _revisionBookletHeader(DocumentDataEntity data, String title) {
+    return pw.Container(
+      margin: const pw.EdgeInsets.only(bottom: 14),
+      child: pw.Column(
+        children: [
+          pw.Container(
+            width: double.infinity,
+            padding: const pw.EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+            color: _primary,
+            child: pw.Text(
+              title,
+              textAlign: pw.TextAlign.center,
+              style: pw.TextStyle(
+                color: PdfColors.white,
+                fontSize: 12,
+                fontWeight: pw.FontWeight.bold,
+              ),
+            ),
+          ),
+          pw.SizedBox(height: 4),
+          pw.Row(
+            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+            children: [
+              pw.Text(
+                data.subjectTitle,
+                style: pw.TextStyle(
+                  fontSize: 9,
+                  fontWeight: pw.FontWeight.bold,
+                ),
+              ),
+              pw.Text(
+                data.gradeTitle,
+                style: const pw.TextStyle(fontSize: 9, color: _muted),
+              ),
+            ],
+          ),
+          pw.Container(height: 0.8, color: _line),
+        ],
+      ),
+    );
+  }
+
   pw.Widget _examHeader(
+    DocumentDataEntity data,
+    String title, {
+    required bool isAnswerKey,
+  }) {
+    return switch (data.examTemplate) {
+      ExamTemplate.official => _officialExamHeader(
+        data,
+        title,
+        isAnswerKey: isAnswerKey,
+      ),
+      ExamTemplate.framed => _framedExamHeader(
+        data,
+        title,
+        isAnswerKey: isAnswerKey,
+      ),
+      ExamTemplate.compact => _compactExamHeader(
+        data,
+        title,
+        isAnswerKey: isAnswerKey,
+      ),
+    };
+  }
+
+  pw.Widget _officialExamHeader(
     DocumentDataEntity data,
     String title, {
     required bool isAnswerKey,
@@ -481,6 +797,227 @@ class EgyptianPdfGenerator {
     );
   }
 
+  pw.Widget _framedExamHeader(
+    DocumentDataEntity data,
+    String title, {
+    required bool isAnswerKey,
+  }) {
+    final displayTitle = isAnswerKey
+        ? '${PdfDocumentStrings.answerKey} - $title'
+        : title;
+
+    return pw.Container(
+      margin: const pw.EdgeInsets.only(bottom: 14),
+      decoration: pw.BoxDecoration(
+        border: pw.Border.all(color: _primary, width: 1.4),
+      ),
+      child: pw.Column(
+        children: [
+          pw.Container(
+            padding: const pw.EdgeInsets.all(10),
+            color: _primarySoft,
+            child: pw.Row(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                pw.Expanded(
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      pw.Text(
+                        PdfDocumentStrings.arabRepublicOfEgypt,
+                        style: pw.TextStyle(
+                          fontSize: 9,
+                          fontWeight: pw.FontWeight.bold,
+                        ),
+                      ),
+                      _headerOptionalLine(
+                        PdfDocumentStrings.governorate,
+                        data.governorate,
+                      ),
+                      _headerOptionalLine(
+                        PdfDocumentStrings.administration,
+                        data.educationalAdministration,
+                      ),
+                      _headerOptionalLine(
+                        PdfDocumentStrings.school,
+                        data.schoolName,
+                      ),
+                    ],
+                  ),
+                ),
+                pw.Container(width: 0.7, height: 62, color: _line),
+                pw.SizedBox(width: 10),
+                pw.Expanded(
+                  flex: 2,
+                  child: pw.Column(
+                    children: [
+                      pw.Text(
+                        displayTitle,
+                        textAlign: pw.TextAlign.center,
+                        style: pw.TextStyle(
+                          color: _primary,
+                          fontSize: 16,
+                          fontWeight: pw.FontWeight.bold,
+                        ),
+                      ),
+                      pw.SizedBox(height: 5),
+                      pw.Text(
+                        data.subjectTitle,
+                        style: pw.TextStyle(
+                          fontSize: 11,
+                          fontWeight: pw.FontWeight.bold,
+                        ),
+                      ),
+                      pw.Text(
+                        data.gradeTitle,
+                        style: const pw.TextStyle(fontSize: 9, color: _muted),
+                      ),
+                    ],
+                  ),
+                ),
+                pw.SizedBox(width: 10),
+                pw.Container(width: 0.7, height: 62, color: _line),
+                pw.Expanded(
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.end,
+                    children: [
+                      _headerValue(
+                        PdfDocumentStrings.academicYear,
+                        data.academicYear,
+                      ),
+                      _headerValue(PdfDocumentStrings.term, data.termName),
+                      _headerValue(
+                        PdfDocumentStrings.duration,
+                        data.examDuration,
+                      ),
+                      _headerValue(
+                        PdfDocumentStrings.totalGrade,
+                        data.totalGrade,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (!isAnswerKey)
+            pw.Container(
+              padding: const pw.EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 8,
+              ),
+              decoration: const pw.BoxDecoration(
+                border: pw.Border(
+                  top: pw.BorderSide(color: _primary, width: 0.8),
+                ),
+              ),
+              child: _studentDataRow(),
+            ),
+        ],
+      ),
+    );
+  }
+
+  pw.Widget _compactExamHeader(
+    DocumentDataEntity data,
+    String title, {
+    required bool isAnswerKey,
+  }) {
+    final displayTitle = isAnswerKey
+        ? '${PdfDocumentStrings.answerKey} - $title'
+        : title;
+
+    return pw.Container(
+      margin: const pw.EdgeInsets.only(bottom: 9),
+      child: pw.Column(
+        children: [
+          pw.Container(
+            width: double.infinity,
+            padding: const pw.EdgeInsets.symmetric(horizontal: 9, vertical: 7),
+            decoration: pw.BoxDecoration(
+              color: _paperSoft,
+              border: pw.Border.all(color: _ink, width: 0.8),
+            ),
+            child: pw.Row(
+              children: [
+                pw.Expanded(
+                  flex: 2,
+                  child: pw.Text(
+                    displayTitle,
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                      fontWeight: pw.FontWeight.bold,
+                    ),
+                  ),
+                ),
+                pw.Expanded(
+                  child: pw.Text(
+                    '${data.subjectTitle} - ${data.gradeTitle}',
+                    textAlign: pw.TextAlign.left,
+                    style: const pw.TextStyle(fontSize: 9),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          pw.SizedBox(height: 4),
+          pw.Container(
+            padding: const pw.EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+            decoration: pw.BoxDecoration(
+              border: pw.Border.all(color: _line, width: 0.6),
+            ),
+            child: pw.Row(
+              children: [
+                pw.Expanded(
+                  flex: 2,
+                  child: pw.Text(
+                    [
+                      if (data.schoolName.isNotEmpty)
+                        '${PdfDocumentStrings.school}: ${data.schoolName}',
+                      if (data.educationalAdministration.isNotEmpty)
+                        '${PdfDocumentStrings.administration}: ${data.educationalAdministration}',
+                    ].join(' | '),
+                    style: const pw.TextStyle(fontSize: 8),
+                  ),
+                ),
+                pw.Expanded(
+                  child: pw.Text(
+                    '${PdfDocumentStrings.academicYear}: '
+                    '${data.academicYear.isEmpty ? PdfDocumentStrings.unknown : data.academicYear}',
+                    style: const pw.TextStyle(fontSize: 8),
+                  ),
+                ),
+                pw.Expanded(
+                  child: pw.Text(
+                    '${PdfDocumentStrings.totalGrade}: '
+                    '${data.totalGrade.isEmpty ? PdfDocumentStrings.unknown : data.totalGrade}',
+                    textAlign: pw.TextAlign.left,
+                    style: const pw.TextStyle(fontSize: 8),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (!isAnswerKey) ...[
+            pw.SizedBox(height: 4),
+            pw.Container(
+              padding: const pw.EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 5,
+              ),
+              decoration: pw.BoxDecoration(
+                border: pw.Border.all(color: _ink, width: 0.6),
+              ),
+              child: _studentDataRow(),
+            ),
+          ],
+          pw.SizedBox(height: 5),
+          pw.Container(height: 1, color: _ink),
+        ],
+      ),
+    );
+  }
+
   List<pw.Widget> _questionWidgets({
     required DocumentDataEntity data,
     required bool includeAnswers,
@@ -494,7 +1031,7 @@ class EgyptianPdfGenerator {
     ) {
       final section = data.sections[sectionIndex];
       widgets.add(pw.NewPage(freeSpace: 130));
-      widgets.add(_sectionTitle(section, sectionIndex));
+      widgets.add(_sectionTitle(data, section, sectionIndex));
       widgets.add(pw.SizedBox(height: 8));
 
       for (
@@ -509,16 +1046,48 @@ class EgyptianPdfGenerator {
             fontSize: data.fontSize,
             includeAnswer: includeAnswers,
             includeAnswerSpaces: includeAnswerSpaces,
+            compact:
+                !data.isBooklet && data.examTemplate == ExamTemplate.compact,
           ),
         );
-        widgets.add(pw.SizedBox(height: 8));
+        widgets.add(
+          pw.SizedBox(
+            height: !data.isBooklet && data.examTemplate == ExamTemplate.compact
+                ? 5
+                : 8,
+          ),
+        );
       }
       widgets.add(pw.SizedBox(height: 8));
     }
     return widgets;
   }
 
-  pw.Widget _sectionTitle(DocumentSectionEntity section, int sectionIndex) {
+  pw.Widget _sectionTitle(
+    DocumentDataEntity data,
+    DocumentSectionEntity section,
+    int sectionIndex,
+  ) {
+    final label =
+        '${PdfDocumentStrings.question} ${_ordinal(sectionIndex)}: '
+        '${section.title}';
+
+    if (data.isBooklet) {
+      return switch (data.bookletTemplate) {
+        BookletTemplate.classic => _classicSectionTitle(label),
+        BookletTemplate.organized => _organizedSectionTitle(label),
+        BookletTemplate.revision => _filledSectionTitle(label),
+      };
+    }
+
+    return switch (data.examTemplate) {
+      ExamTemplate.official => _officialSectionTitle(label),
+      ExamTemplate.framed => _organizedSectionTitle(label),
+      ExamTemplate.compact => _compactSectionTitle(label),
+    };
+  }
+
+  pw.Widget _classicSectionTitle(String label) {
     return pw.Container(
       width: double.infinity,
       padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 7),
@@ -530,8 +1099,73 @@ class EgyptianPdfGenerator {
         ),
       ),
       child: pw.Text(
-        '${PdfDocumentStrings.question} ${_ordinal(sectionIndex)}: ${section.title}',
+        label,
         style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold),
+      ),
+    );
+  }
+
+  pw.Widget _organizedSectionTitle(String label) {
+    return pw.Container(
+      width: double.infinity,
+      padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      decoration: pw.BoxDecoration(
+        color: _primarySoft,
+        border: pw.Border.all(color: _primary, width: 0.8),
+      ),
+      child: pw.Text(
+        label,
+        textAlign: pw.TextAlign.center,
+        style: pw.TextStyle(
+          color: _primary,
+          fontSize: 13,
+          fontWeight: pw.FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  pw.Widget _filledSectionTitle(String label) {
+    return pw.Container(
+      width: double.infinity,
+      padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      color: _primary,
+      child: pw.Text(
+        label,
+        style: pw.TextStyle(
+          color: PdfColors.white,
+          fontSize: 13,
+          fontWeight: pw.FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  pw.Widget _officialSectionTitle(String label) {
+    return pw.Container(
+      width: double.infinity,
+      padding: const pw.EdgeInsets.only(bottom: 5),
+      decoration: const pw.BoxDecoration(
+        border: pw.Border(bottom: pw.BorderSide(color: _ink, width: 1)),
+      ),
+      child: pw.Text(
+        label,
+        style: pw.TextStyle(fontSize: 13, fontWeight: pw.FontWeight.bold),
+      ),
+    );
+  }
+
+  pw.Widget _compactSectionTitle(String label) {
+    return pw.Container(
+      width: double.infinity,
+      padding: const pw.EdgeInsets.symmetric(horizontal: 7, vertical: 4),
+      decoration: pw.BoxDecoration(
+        color: _paperSoft,
+        border: pw.Border.all(color: _ink, width: 0.6),
+      ),
+      child: pw.Text(
+        label,
+        style: pw.TextStyle(fontSize: 11, fontWeight: pw.FontWeight.bold),
       ),
     );
   }
@@ -542,6 +1176,7 @@ class EgyptianPdfGenerator {
     required double fontSize,
     required bool includeAnswer,
     required bool includeAnswerSpaces,
+    required bool compact,
   }) {
     final children = <pw.Widget>[
       pw.Text(
@@ -596,7 +1231,7 @@ class EgyptianPdfGenerator {
         List.generate(
           question.category.defaultAnswerLines,
           (_) => pw.Container(
-            height: 17,
+            height: compact ? 14 : 17,
             decoration: const pw.BoxDecoration(
               border: pw.Border(
                 bottom: pw.BorderSide(color: _line, width: 0.6),
@@ -622,7 +1257,7 @@ class EgyptianPdfGenerator {
     ) {
       final section = data.sections[sectionIndex];
       widgets.add(pw.NewPage(freeSpace: 120));
-      widgets.add(_sectionTitle(section, sectionIndex));
+      widgets.add(_sectionTitle(data, section, sectionIndex));
       widgets.add(pw.SizedBox(height: 8));
       widgets.add(
         pw.Table(
@@ -701,6 +1336,47 @@ class EgyptianPdfGenerator {
     );
   }
 
+  pw.Widget _coverTableCell(String label, String value) {
+    return pw.Padding(
+      padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 9),
+      child: _coverValue(label, value),
+    );
+  }
+
+  pw.Widget _bookletTeacherFooter(
+    DocumentDataEntity data, {
+    bool filled = false,
+  }) {
+    final details = [
+      if (data.teacherName.isNotEmpty)
+        '${PdfDocumentStrings.teacher}: ${data.teacherName}',
+      if (data.teacherPhoneNumber.isNotEmpty)
+        '${PdfDocumentStrings.phone}: ${data.teacherPhoneNumber}',
+    ];
+
+    return pw.Container(
+      width: double.infinity,
+      padding: const pw.EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+      decoration: filled
+          ? const pw.BoxDecoration(
+              color: _primarySoft,
+              border: pw.Border(
+                top: pw.BorderSide(color: _primary, width: 0.8),
+              ),
+            )
+          : null,
+      child: pw.Text(
+        details.isEmpty ? AppStrings.appName : details.join(' | '),
+        textAlign: pw.TextAlign.center,
+        style: pw.TextStyle(
+          color: filled ? _primary : _ink,
+          fontSize: 11,
+          fontWeight: pw.FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
   pw.Widget _headerOptionalLine(String label, String value) {
     if (value.isEmpty) return pw.SizedBox();
     return pw.Text('$label: $value', style: const pw.TextStyle(fontSize: 9));
@@ -718,6 +1394,21 @@ class EgyptianPdfGenerator {
     return pw.Text(
       '$label: ${PdfDocumentStrings.unknown}',
       style: const pw.TextStyle(fontSize: 9),
+    );
+  }
+
+  pw.Widget _studentDataRow() {
+    return pw.Row(
+      children: [
+        pw.Expanded(
+          flex: 3,
+          child: _studentField(PdfDocumentStrings.studentName),
+        ),
+        pw.SizedBox(width: 10),
+        pw.Expanded(child: _studentField(PdfDocumentStrings.classroom)),
+        pw.SizedBox(width: 10),
+        pw.Expanded(child: _studentField(PdfDocumentStrings.seatNumber)),
+      ],
     );
   }
 

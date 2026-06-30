@@ -65,9 +65,8 @@ void main() {
 
         for (final grade in GradeLevel.values) {
           for (final category in QuestionCategoryType.values) {
-            final questions = await dataSource.getQuestions(
+            final questions = SocialStudiesQuestions.getQuestions(
               grade: grade,
-              subjectId: SocialStudiesQuestions.subjectId,
               category: category,
             );
 
@@ -93,9 +92,8 @@ void main() {
 
         for (final grade in GradeLevel.values) {
           for (final category in QuestionCategoryType.values) {
-            final questions = await dataSource.getQuestions(
+            final questions = SocialStudiesQuestions.getQuestions(
               grade: grade,
-              subjectId: SocialStudiesQuestions.subjectId,
               category: category,
             );
 
@@ -103,13 +101,34 @@ void main() {
 
             for (final question in questions) {
               final answer = question.answerText?.trim() ?? '';
+              final questionText = question.questionText.trim();
 
+              expect(questionText, isNotEmpty, reason: question.id);
+              expect(
+                questionText.toLowerCase(),
+                isNot(contains('undefined')),
+                reason: question.id,
+              );
               expect(answer, isNotEmpty, reason: question.id);
               expect(
                 answer.toLowerCase(),
                 isNot('undefined'),
                 reason: question.id,
               );
+
+              if (category == QuestionCategoryType.multipleChoice) {
+                expect(question.options.length, greaterThanOrEqualTo(2));
+                expect(
+                  question.options.every((option) => option.trim().isNotEmpty),
+                  isTrue,
+                  reason: question.id,
+                );
+                expect(
+                  question.options.contains(answer),
+                  isTrue,
+                  reason: question.id,
+                );
+              }
             }
           }
         }

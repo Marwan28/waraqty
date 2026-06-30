@@ -171,8 +171,52 @@ class DocumentSummaryScreen extends StatelessWidget {
       child: DocumentCategorySummaryTile(
         category: category,
         questionsCount: state.selectedQuestionsCountForCategory(category.type),
-        onEdit: () {},
+        onEdit: () => _editCategory(context, category),
+        onDelete: () => _confirmDeleteCategory(context, category),
       ),
     );
+  }
+
+  Future<void> _editCategory(
+    BuildContext context,
+    QuestionCategoryEntity category,
+  ) async {
+    await context.read<QuestionSelectionCubit>().selectCategory(category);
+    if (context.mounted) context.pop();
+  }
+
+  Future<void> _confirmDeleteCategory(
+    BuildContext context,
+    QuestionCategoryEntity category,
+  ) async {
+    final shouldDelete = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text(DocumentSummaryStrings.removeCategory),
+          content: Text(
+            '${DocumentSummaryStrings.removeCategoryConfirmation} '
+            '${category.title}؟',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: const Text(DocumentSummaryStrings.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              style: FilledButton.styleFrom(
+                backgroundColor: const Color(AppColors.coral),
+              ),
+              child: const Text(DocumentSummaryStrings.delete),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (shouldDelete == true && context.mounted) {
+      context.read<QuestionSelectionCubit>().clearCategory(category);
+    }
   }
 }

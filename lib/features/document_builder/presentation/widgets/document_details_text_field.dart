@@ -67,6 +67,7 @@ class DocumentDetailsTextField extends StatelessWidget {
           ),
           SizedBox(height: AppSpacing.sm.h),
           TextFormField(
+            key: ValueKey(label),
             initialValue: initialValue,
             onChanged: onChanged,
             keyboardType: keyboardType,

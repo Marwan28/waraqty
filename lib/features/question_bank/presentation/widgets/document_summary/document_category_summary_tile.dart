@@ -13,11 +13,13 @@ class DocumentCategorySummaryTile extends StatelessWidget {
     required this.category,
     required this.questionsCount,
     this.onEdit,
+    this.onDelete,
   });
 
   final QuestionCategoryEntity category;
   final int questionsCount;
   final VoidCallback? onEdit;
+  final VoidCallback? onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +69,20 @@ class DocumentCategorySummaryTile extends StatelessWidget {
           if (onEdit != null)
             _buildIconButton(
               icon: LucideIcons.pencil,
+              tooltip: DocumentSummaryStrings.editCategory,
               onPressed: onEdit!,
               color: const Color(AppColors.primary),
               backgroundColor: const Color(AppColors.primarySoft),
+            ),
+          if (onEdit != null && onDelete != null)
+            SizedBox(width: AppSpacing.sm.w),
+          if (onDelete != null)
+            _buildIconButton(
+              icon: LucideIcons.trash2,
+              tooltip: DocumentSummaryStrings.removeCategory,
+              onPressed: onDelete!,
+              color: const Color(AppColors.coral),
+              backgroundColor: const Color(AppColors.coralSoft),
             ),
         ],
       ),
@@ -78,19 +91,23 @@ class DocumentCategorySummaryTile extends StatelessWidget {
 
   Widget _buildIconButton({
     required IconData icon,
+    required String tooltip,
     required VoidCallback onPressed,
     required Color color,
     required Color backgroundColor,
   }) {
-    return Material(
-      color: backgroundColor,
-      borderRadius: BorderRadius.circular(10.r),
-      child: InkWell(
-        onTap: onPressed,
+    return Tooltip(
+      message: tooltip,
+      child: Material(
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(10.r),
-        child: Padding(
-          padding: EdgeInsets.all(8.w),
-          child: Icon(icon, size: 18.sp, color: color),
+        child: InkWell(
+          onTap: onPressed,
+          borderRadius: BorderRadius.circular(10.r),
+          child: Padding(
+            padding: EdgeInsets.all(8.w),
+            child: Icon(icon, size: 18.sp, color: color),
+          ),
         ),
       ),
     );

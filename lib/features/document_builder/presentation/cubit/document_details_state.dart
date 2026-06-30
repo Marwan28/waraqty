@@ -5,7 +5,7 @@ class DocumentDetailsState extends Equatable {
   final String teacherName;
   final String teacherPhoneNumber;
   final String subjectName;
-  final String bookletTemplate;
+  final BookletTemplate bookletTemplate;
   final double fontSize;
   final bool includeBookletAnswers;
 
@@ -17,6 +17,7 @@ class DocumentDetailsState extends Equatable {
   final String termName;
   final String examDuration;
   final String totalGrade;
+  final ExamTemplate examTemplate;
   final bool includeAnswerSpaces;
 
   const DocumentDetailsState({
@@ -24,7 +25,7 @@ class DocumentDetailsState extends Equatable {
     this.teacherName = '',
     this.teacherPhoneNumber = '',
     this.subjectName = '',
-    this.bookletTemplate = 'بسيط',
+    this.bookletTemplate = BookletTemplate.classic,
     this.fontSize = 14,
     this.includeBookletAnswers = false,
     this.schoolName = '',
@@ -35,6 +36,7 @@ class DocumentDetailsState extends Equatable {
     this.termName = '',
     this.examDuration = '',
     this.totalGrade = '',
+    this.examTemplate = ExamTemplate.official,
     this.includeAnswerSpaces = true,
   });
 
@@ -62,7 +64,7 @@ class DocumentDetailsState extends Equatable {
     String? teacherName,
     String? teacherPhoneNumber,
     String? subjectName,
-    String? bookletTemplate,
+    BookletTemplate? bookletTemplate,
     double? fontSize,
     bool? includeBookletAnswers,
     String? schoolName,
@@ -73,6 +75,7 @@ class DocumentDetailsState extends Equatable {
     String? termName,
     String? examDuration,
     String? totalGrade,
+    ExamTemplate? examTemplate,
     bool? includeAnswerSpaces,
   }) {
     return DocumentDetailsState(
@@ -93,6 +96,7 @@ class DocumentDetailsState extends Equatable {
       termName: termName ?? this.termName,
       examDuration: examDuration ?? this.examDuration,
       totalGrade: totalGrade ?? this.totalGrade,
+      examTemplate: examTemplate ?? this.examTemplate,
       includeAnswerSpaces: includeAnswerSpaces ?? this.includeAnswerSpaces,
     );
   }
@@ -114,6 +118,7 @@ class DocumentDetailsState extends Equatable {
     termName,
     examDuration,
     totalGrade,
+    examTemplate,
     includeAnswerSpaces,
   ];
 }

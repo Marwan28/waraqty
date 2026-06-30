@@ -388,8 +388,8 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
 
   void _decreaseLimit() {
     final cubit = context.read<QuestionSelectionCubit>();
-    final state = cubit.state;
-    if (state is! QuestionSelectionLoaded) return;
+    final state = _loadedStateFrom(cubit.state);
+    if (state == null) return;
 
     final currentLimit = state.currentCategoryLimit;
     if (currentLimit == null || currentLimit <= 1) return;
@@ -402,8 +402,8 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
 
   void _increaseLimit() {
     final cubit = context.read<QuestionSelectionCubit>();
-    final state = cubit.state;
-    if (state is! QuestionSelectionLoaded) return;
+    final state = _loadedStateFrom(cubit.state);
+    if (state == null) return;
 
     final currentLimit = state.currentCategoryLimit;
     final nextLimit = currentLimit == null
@@ -423,8 +423,8 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
 
   void _setDefaultLimit() {
     final cubit = context.read<QuestionSelectionCubit>();
-    final state = cubit.state;
-    if (state is! QuestionSelectionLoaded) return;
+    final state = _loadedStateFrom(cubit.state);
+    if (state == null) return;
 
     final questionsCount = state.questions.length;
     if (questionsCount <= 0) return;

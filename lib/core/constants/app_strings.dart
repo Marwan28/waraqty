@@ -104,6 +104,10 @@ class DocumentSummaryStrings {
   static const String selectedCategories = 'التصنيفات المختارة';
   static const String removeCategory = 'مسح التصنيف';
   static const String editCategory = 'تعديل التصنيف';
+  static const String removeCategoryConfirmation =
+      'هل تريد حذف كل الأسئلة المختارة من تصنيف';
+  static const String cancel = 'إلغاء';
+  static const String delete = 'حذف';
   static const String selectedQuestionsLabel = 'أسئلة مختارة';
   static const String filesCount = 'عدد الملفات';
   static const String oneFile = 'ملف واحد';
@@ -126,7 +130,6 @@ class BookletDetailsStrings {
   static const String teacherPhoneNumberHint = 'مثال: 01xxxxxxxx';
   static const String subjectName = 'اسم المادة';
   static const bookletTemplate = 'قالب الملزمة';
-  static const List<String> bookletTemplates = ['بسيط', 'منظم', 'مراجعة'];
   static const fontSize = 'حجم الخط';
   static const pixel = 'بكسل';
   static const String previewButton = 'معاينة PDF';
@@ -175,6 +178,7 @@ class ExamDetailsStrings {
   static const String examDurationHint = 'مثال: ساعة ونصف';
   static const String totalGrade = 'الدرجة الكلية';
   static const String totalGradeHint = 'مثال: 30';
+  static const String examTemplate = 'قالب الامتحان';
   static const String teacherName = 'اسم المدرس';
   static const String teacherNameHint = 'مثال: أ. مروان';
 }

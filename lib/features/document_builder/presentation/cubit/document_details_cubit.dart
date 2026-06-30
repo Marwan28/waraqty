@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:waraqty/features/document_builder/domain/entities/document_template.dart';
 
 part 'document_details_state.dart';
 
@@ -22,7 +23,7 @@ class DocumentDetailsCubit extends Cubit<DocumentDetailsState> {
     emit(state.copyWith(subjectName: value.trim()));
   }
 
-  void updateBookletTemplate(String value) {
+  void updateBookletTemplate(BookletTemplate value) {
     emit(state.copyWith(bookletTemplate: value));
   }
 
@@ -64,6 +65,10 @@ class DocumentDetailsCubit extends Cubit<DocumentDetailsState> {
 
   void updateTotalGrade(String value) {
     emit(state.copyWith(totalGrade: value.trim()));
+  }
+
+  void updateExamTemplate(ExamTemplate value) {
+    emit(state.copyWith(examTemplate: value));
   }
 
   void toggleAnswerSpaces(bool value) {

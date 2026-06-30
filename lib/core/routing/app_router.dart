@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:waraqty/core/constants/app_routes.dart';
-import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/features/document_builder/data/services/egyptian_pdf_generator.dart';
 import 'package:waraqty/features/document_builder/data/services/pdf_storage_service.dart';
 import 'package:waraqty/features/document_builder/presentation/cubit/document_builder_cubit.dart';
@@ -80,8 +79,13 @@ class AppRouter {
             builder: (context, state, child) {
               final paperSetupState = context.read<PaperSetupCubit>().state;
               if (!paperSetupState.isSetupComplete) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  if (context.mounted) {
+                    context.go(AppRoutes.gradeSelection);
+                  }
+                });
                 return const Scaffold(
-                  body: Center(child: Text('Missing setup data')),
+                  body: Center(child: CircularProgressIndicator()),
                 );
               }
               return BlocProvider(
@@ -138,12 +142,13 @@ class AppRouter {
                             .read<DocumentDetailsCubit>(),
                       );
                       if (documentData == null) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          if (context.mounted) {
+                            context.go(AppRoutes.questionsSelection);
+                          }
+                        });
                         return const Scaffold(
-                          body: Center(
-                            child: Text(
-                              DocumentSummaryStrings.noQuestionsTitle,
-                            ),
-                          ),
+                          body: Center(child: CircularProgressIndicator()),
                         );
                       }
 

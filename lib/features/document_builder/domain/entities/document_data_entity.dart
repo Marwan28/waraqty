@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:waraqty/features/document_builder/domain/entities/document_section_entity.dart';
+import 'package:waraqty/features/document_builder/domain/entities/document_template.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/paper_type_entity.dart';
 
 class DocumentDataEntity extends Equatable {
@@ -11,7 +12,7 @@ class DocumentDataEntity extends Equatable {
   final String bookletTitle;
   final String teacherName;
   final String teacherPhoneNumber;
-  final String bookletTemplate;
+  final BookletTemplate bookletTemplate;
   final bool includeBookletAnswers;
 
   final String schoolName;
@@ -22,6 +23,7 @@ class DocumentDataEntity extends Equatable {
   final String termName;
   final String examDuration;
   final String totalGrade;
+  final ExamTemplate examTemplate;
   final bool includeAnswerSpaces;
 
   final double fontSize;
@@ -44,6 +46,7 @@ class DocumentDataEntity extends Equatable {
     required this.termName,
     required this.examDuration,
     required this.totalGrade,
+    required this.examTemplate,
     required this.includeAnswerSpaces,
     required this.fontSize,
   });
@@ -76,6 +79,7 @@ class DocumentDataEntity extends Equatable {
     termName,
     examDuration,
     totalGrade,
+    examTemplate,
     includeAnswerSpaces,
     fontSize,
   ];

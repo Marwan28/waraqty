@@ -48,6 +48,7 @@ class DocumentDataMapper {
       termName: details.termName,
       examDuration: details.examDuration,
       totalGrade: details.totalGrade,
+      examTemplate: details.examTemplate,
       includeAnswerSpaces: details.includeAnswerSpaces,
       fontSize: details.fontSize,
     );

@@ -10,6 +10,7 @@ import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/core/theme/app_text_styles.dart';
 import 'package:waraqty/features/document_builder/presentation/cubit/document_builder_cubit.dart';
 import 'package:waraqty/features/document_builder/presentation/widgets/saved_pdf_file_tile.dart';
+import 'package:waraqty/features/paper_setup/presentation/cubit/paper_setup_cubit.dart';
 
 class SavedSuccessScreen extends StatelessWidget {
   const SavedSuccessScreen({super.key});
@@ -81,7 +82,10 @@ class SavedSuccessScreen extends StatelessWidget {
                   SizedBox(
                     height: 54.h,
                     child: FilledButton(
-                      onPressed: () => context.go(AppRoutes.gradeSelection),
+                      onPressed: () {
+                        context.read<PaperSetupCubit>().resetSetup();
+                        context.go(AppRoutes.gradeSelection);
+                      },
                       style: FilledButton.styleFrom(
                         backgroundColor: const Color(AppColors.primary),
                         foregroundColor: const Color(AppColors.white),
