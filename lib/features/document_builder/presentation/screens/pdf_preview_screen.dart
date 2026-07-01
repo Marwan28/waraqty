@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
+import 'package:waraqty/core/ads/ads_cubit.dart';
 import 'package:waraqty/core/constants/app_routes.dart';
 import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/theme/app_colors.dart';
@@ -159,7 +160,10 @@ class PdfPreviewScreen extends StatelessWidget {
     );
   }
 
-  void _handleStateChange(BuildContext context, DocumentBuilderState state) {
+  Future<void> _handleStateChange(
+    BuildContext context,
+    DocumentBuilderState state,
+  ) async {
     if (state.isSaved && state.savedFiles.isNotEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -168,6 +172,8 @@ class PdfPreviewScreen extends StatelessWidget {
           behavior: SnackBarBehavior.floating,
         ),
       );
+      await context.read<AdsCubit>().registerSuccessfulPdfSave();
+      if (!context.mounted) return;
       _showSaveResultSheet(context, state);
       return;
     }

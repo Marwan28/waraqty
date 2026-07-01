@@ -7,6 +7,7 @@ import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/theme/app_colors.dart';
 import 'package:waraqty/core/theme/app_spacing.dart';
 import 'package:waraqty/core/theme/app_text_styles.dart';
+import 'package:waraqty/core/widgets/adaptive_banner_ad.dart';
 import 'package:waraqty/features/paper_setup/presentation/widgets/paper_setup_back_button.dart';
 import 'package:waraqty/features/question_bank/presentation/cubit/question_selection_cubit.dart';
 import 'package:waraqty/features/question_bank/presentation/widgets/question_selection/question_card.dart';
@@ -281,6 +282,8 @@ class _QuestionSelectionScreenState extends State<QuestionSelectionScreen> {
                 .clearCurrentCategory,
           ),
         ),
+        SizedBox(height: AppSpacing.xl.h),
+        const AdaptiveBannerAd(),
         SizedBox(height: AppSpacing.xl.h),
         Padding(
           padding: EdgeInsets.symmetric(

@@ -6,6 +6,7 @@ import 'package:waraqty/core/constants/app_routes.dart';
 import 'package:waraqty/core/constants/app_strings.dart';
 import 'package:waraqty/core/theme/app_colors.dart';
 import 'package:waraqty/core/theme/app_spacing.dart';
+import 'package:waraqty/core/widgets/privacy_options_button.dart';
 import 'package:waraqty/features/paper_setup/domain/entities/grade_entity.dart';
 import 'package:waraqty/features/paper_setup/presentation/cubit/paper_setup_cubit.dart';
 import 'package:waraqty/features/paper_setup/presentation/widgets/grade_selection/grade_card.dart';
@@ -60,6 +61,7 @@ class GradeSelectionScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                const PrivacyOptionsButton(),
               ],
             );
           },

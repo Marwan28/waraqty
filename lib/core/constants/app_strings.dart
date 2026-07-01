@@ -236,3 +236,7 @@ class PdfDocumentStrings {
   static const String examDefaultTitle = 'امتحان الدراسات الاجتماعية';
   static const String unknown = '....................';
 }
+
+class AdsStrings {
+  static const String privacyOptions = 'خيارات الخصوصية';
+}
