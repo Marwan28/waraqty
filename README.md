@@ -3,55 +3,90 @@
 
   # Waraqty | ورقتي
 
-  **An Arabic-first worksheet and exam builder for Egyptian primary-school teachers.**
+  ### Turn a question bank into a print-ready booklet or exam in minutes.
 
-  Built with Flutter, Clean Architecture, Cubit, local-first data, and on-device PDF generation.
+  An Arabic-first Flutter app built for Egyptian primary-school teachers.
+
+  <a href="https://play.google.com/store/apps/details?id=com.marwan.waraqty">
+    <img
+      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+      alt="Get Waraqty on Google Play"
+      width="210"
+    />
+  </a>
 </div>
 
-![Waraqty feature graphic](docs/images/waraqty-feature-graphic.png)
+![Waraqty - Arabic worksheet and exam builder](docs/images/waraqty-feature-graphic.png)
 
-## Overview
+## The Problem
 
-Waraqty helps teachers create printable Social Studies booklets and exams without manually formatting every question. A teacher chooses a grade, selects questions from a structured bank, adjusts the document details and template, previews the result, then saves or shares the generated PDF.
+Preparing a good worksheet or exam is repetitive work. Teachers often spend time searching for suitable questions, balancing question types, formatting the paper, creating an answer key, and making the final document ready to print.
+
+Waraqty turns that workflow into a guided mobile experience.
+
+## The Solution
+
+A teacher selects a grade, chooses a document type, and builds the paper from a structured question bank. Waraqty handles organization, formatting, answer-key generation, PDF preview, local saving, and sharing.
 
 The first release focuses on Egyptian Social Studies for grades 4, 5, and 6.
 
-## Highlights
+## What Waraqty Delivers
 
-- 1,200 locally available questions across three grade levels.
-- Eight question categories, including multiple choice, complete, true/false, explain, define, essay, compare, and consequences.
-- Per-category question limits, unlimited mode, select-all, and clear-selection controls.
-- Reorderable document sections before generation.
-- Booklets with optional answers.
-- Exams with a separate answer-key PDF.
-- Three booklet templates and three exam templates inspired by Egyptian school papers.
-- Configurable font size and document metadata.
-- In-app PDF preview, local saving, and native sharing.
-- Offline-first question bank with no account required.
-- Arabic RTL interface with responsive layouts.
-- AdMob banner and interstitial ads with UMP privacy consent support.
+- **1,200 questions** available locally across three grade levels.
+- **Eight question categories:** multiple choice, complete, true/false, explain, define, essay, compare, and consequences.
+- **Flexible selection controls:** limits per category, unlimited mode, select all, and clear selection.
+- **Editable paper structure:** selected sections can be reviewed, removed, and reordered.
+- **Two document workflows:** booklets with optional answers, and exams with a separate answer key.
+- **Six PDF templates:** three booklet designs and three exam designs inspired by Egyptian school papers.
+- **Document customization:** teacher or school details, font size, answer lines, and paper metadata.
+- **Complete PDF workflow:** preview, save to an organized Downloads folder, and share from the device.
+- **Local-first experience:** the question bank works offline and no account is required.
+- **Privacy-aware monetization:** adaptive banner and interstitial ads with Google UMP consent support.
 
-## User Flow
+## From Questions to PDF
 
-1. Select a grade.
-2. Select the subject.
-3. Choose a booklet or exam.
-4. Browse question categories and select questions.
-5. Review and reorder document sections.
-6. Enter optional document or school details.
-7. Choose a template and preview the PDF.
-8. Save and share the generated files.
+```text
+Grade
+  -> Subject
+  -> Booklet or Exam
+  -> Question Categories
+  -> Question Selection
+  -> Section Review and Reordering
+  -> Document Details and Template
+  -> PDF Preview
+  -> Save and Share
+```
+
+This flow preserves the teacher's selected questions even when switching between booklet and exam modes.
+
+## Product Decisions
+
+### Fast without a backend
+
+The first version ships its structured question bank locally. Teachers can browse questions and generate documents without waiting for network requests, while repository and use-case boundaries keep the data source replaceable for a future Supabase migration.
+
+### State belongs outside the UI
+
+Selection limits, chosen questions, document sections, paper details, PDF generation, and ad lifecycle state are managed with Cubit rather than widget-local state. This keeps screens focused on rendering and user interaction.
+
+### PDF output is a core feature
+
+PDF generation is handled on-device with separate services for Egyptian paper layouts and file storage. The app supports booklet answers, separate exam answer keys, multiple templates, previewing, saving, and native sharing.
+
+### Arabic is the default experience
+
+The interface is designed around RTL navigation, Arabic typography, and responsive layouts instead of treating Arabic as a translated secondary language.
 
 ## Architecture
 
-The project follows a feature-first Clean Architecture approach:
+Waraqty uses feature-first Clean Architecture:
 
 ```text
 lib/
 |-- app/                         # App shell, directionality, and system UI
 |-- core/
 |   |-- ads/                     # AdMob and banner state management
-|   |-- constants/               # Routes, strings, assets, and app constants
+|   |-- constants/               # Routes, strings, assets, and constants
 |   |-- enums/                   # Shared domain enums
 |   |-- routing/                 # GoRouter configuration
 |   |-- theme/                   # Colors, typography, spacing, and theme
@@ -66,9 +101,9 @@ lib/
         `-- presentation/
 ```
 
-Each feature keeps presentation, domain, and data concerns separated. UI state is managed with Cubit, while repository and use-case boundaries keep the question source replaceable when the app moves from local data to a remote backend.
+Each feature separates presentation, domain, and data responsibilities. Repositories isolate data access, use cases express application actions, and Cubits expose predictable UI state.
 
-## Tech Stack
+## Engineering Stack
 
 | Area | Technology |
 | --- | --- |
@@ -84,46 +119,6 @@ Each feature keeps presentation, domain, and data concerns separated. UI state i
 | Branding | flutter_launcher_icons, flutter_native_splash |
 | Arabic font | IBM Plex Sans Arabic |
 
-## Getting Started
-
-### Requirements
-
-- Flutter SDK compatible with Dart `^3.11.4`
-- Android Studio or VS Code
-- Android SDK 24 or newer
-
-### Run locally
-
-```bash
-git clone https://github.com/Marwan28/waraqty.git
-cd waraqty
-flutter pub get
-flutter run
-```
-
-Debug builds use Google's test ad units. Production AdMob IDs are kept in the release configuration and should never be used for development clicks.
-
-### Quality checks
-
-```bash
-flutter analyze
-flutter test
-```
-
-### Build an Android App Bundle
-
-Release signing requires a local `android/key.properties` file and a private upload keystore. Neither file should be committed.
-
-```bash
-flutter build appbundle --release
-```
-
-The generated bundle is written to:
-
-```text
-build/app/outputs/bundle/release/app-release.aab
-```
-
 ## Privacy
 
 Waraqty does not require an account. Question selections, preferences, and generated PDFs remain on the user's device. Google AdMob may process advertising-related device data according to user consent and Google's policies.
@@ -131,7 +126,7 @@ Waraqty does not require an account. Question selections, preferences, and gener
 - [Privacy Policy](https://marwan28.github.io/privacy.html)
 - [app-ads.txt](https://marwan28.github.io/app-ads.txt)
 
-## Roadmap
+## Next
 
 - Add more Egyptian school subjects and grade levels.
 - Move the question bank to Supabase.
@@ -142,4 +137,4 @@ Waraqty does not require an account. Question selections, preferences, and gener
 
 ## Author
 
-Developed by [Marwan Abdelwahab](https://github.com/Marwan28).
+Designed and developed by [Marwan Abdelwahab](https://github.com/Marwan28).
